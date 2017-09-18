@@ -1,5 +1,5 @@
 use codeBootcamps;
-
+db.dropDatabase();
 db.bootcamps.insert(
 [
   {
@@ -284,7 +284,7 @@ db.bootcamps.insert(
   {
     name: "Coder-Space",
     website: "https://coderspace.co.uk/",
-    logo: "https://coderspace.co.uk/public/img/long_logo.png",
+    logo: "https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/3479/s200/coder-space-logo.png",
     locations: [
       {
         city: "Liverpool", 

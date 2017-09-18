@@ -1,6 +1,7 @@
 var AjaxRequest= function(url) {
     this.url = url;
     this.data = [];
+    this.onUpdate = null;
   }
   
   AjaxRequest.prototype.get = function(callback) {
@@ -9,14 +10,13 @@ var AjaxRequest= function(url) {
     request.onload = function(){
       if(request.status === 200){
         var jsonString = request.responseText;
-        var countries = JSON.parse(jsonString);
-        if (countries[0] && !countries[0].id) {
-          for (var i = 0 ; i < countries.length; i++) {
-            countries[i].id = i;
+        var bootcamps = JSON.parse(jsonString);
+        if (bootcamps[0] && !bootcamps[0].id) {
+          for (var i = 0 ; i < bootcamps.length; i++) {
+            bootcamps[i].id = i;
           }
        }
-        this.characters = countries;
-        callback(this.characters);
+      callback(bootcamps);
       }
     }.bind(this);
     request.send();

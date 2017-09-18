@@ -1,0 +1,25 @@
+body {
+    background-color: lightgrey;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+header {
+display: flex;
+flex-flow: row wrap;
+}
+
+#all-bootcamps {
+display: flex;
+justify-content: center;
+flex-flow: row wrap;
+}
+
+article {
+  flex: 1;
+  margin: 10px;
+  padding: 10px;
+  border: 10px;
+  background-color: white;
+  text-align: center;
+  
+}
