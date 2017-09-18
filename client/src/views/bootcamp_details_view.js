@@ -3,10 +3,11 @@ var BootcampDetailsView = function(detailsElement) {
   }
   
   BootcampDetailsView.prototype.render = function(bootcamp){
-
-    while (this.detailsElement.hasChildNodes()) {
-        this.detailsElement.removeChild(main.lastChild);
-    }
+    console.log(this);
+    this.detailsElement.innerText = ""
+    // while (this.detailsElement.hasChildNodes()) {
+    //     this.detailsElement.removeChild(main.lastChild);
+    // }
 
     var logo = document.createElement("img");
     var nameTag = document.createElement("h1");
@@ -109,7 +110,7 @@ var BootcampDetailsView = function(detailsElement) {
 
     if (bootcamp.depositAmount > 0){
         var depositTag = document.createElement("p");
-        depositTag.innerText = bootcamp.deposit[0];
+        depositTag.innerText = bootcamp.depositAmount;
         descriptiveBox.appendChild(depositTag);
     }
 
@@ -137,12 +138,15 @@ var BootcampDetailsView = function(detailsElement) {
     locationsBox.appendChild(mapBox);
     otherSection.appendChild(locationsBox);
     allDetailsTag.appendChild(otherSection);
-
-    var main = document.querySelector('#all-bootcamps');
-    while (main.hasChildNodes()) {
-        main.removeChild(main.lastChild);
+    this.detailsElement.appendChild(allDetailsTag);
+    
+    var allBootcamps = document.querySelector('#all-bootcamps');
+    while (allBootcamps.hasChildNodes()) {
+        allBootcamps.removeChild(allBootcamps.lastChild);
     }
 
     
     window.scrollTo(0, 0);
-  } 
+  }
+
+  module.exports = BootcampDetailsView;

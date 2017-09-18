@@ -1,6 +1,5 @@
 var AjaxRequest= function(url) {
     this.url = url;
-    this.data = [];
     this.onUpdate = null;
   }
   
@@ -16,6 +15,7 @@ var AjaxRequest= function(url) {
             bootcamps[i].id = i;
           }
        }
+       this.data = bootcamps;
       callback(bootcamps);
       }
     }.bind(this);

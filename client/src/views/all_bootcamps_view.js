@@ -11,7 +11,7 @@ AllBootcampsView.prototype.render = function(data){
             var articleTag = document.createElement("article");
             var logo = document.createElement("img");
             var bootcampName = document.createElement("h3");
-         
+            articleTag.id = i;
             bootcampName.innerText = this.bootcampsData[i].name;
             logo.src = this.bootcampsData[i].logo;
             logo.alt = "Logo of " + this.bootcampsData[i].name;
