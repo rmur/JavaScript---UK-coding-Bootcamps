@@ -16,16 +16,9 @@ var BootcampDetailsView = function(detailsElement) {
     var coreSkillsTag = document.createElement("h3");
     var locationsTag = document.createElement("h4");
     var tasterTag = document.createElement("p");
-    var otherSection = document.createElement("section");
     
     var fundingTag = document.createElement("p");
 
-    if (bootcamp.depositAmount > 0){
-    var depositTag = document.createElement("p");
-    }
-    if (bootcamp.qualification === true){
-        var qualificationTag = document.createElement("p");
-        }
     var descTag = document.createElement("p");
     var addressTag = document.createElement("p");
     var websiteTag = document.createElement("a");
@@ -70,22 +63,6 @@ var BootcampDetailsView = function(detailsElement) {
         tasterTag.innerText = "Taster Session Available"
     }
     
-    if (bootcamp.qualification){
-        qualificationTag.innerText = "Qualification: " + bootcamp.qualificationName
-    }
-    
-    if (bootcamp.fundingOptions.length !== 0){
-        fundingString = "Funding Options: "
-        for(var i = 0; i < bootcamp.fundingOptions.length; i++){
-            if(i === (bootcamp.fundingOptions.length - 1)){
-                fundingString + bootcamp.fundingOptions[i];
-            } else {
-                fundingString + bootcamp.fundingOptions[i] + ", ";
-            }
-        }
-        fundingTag.innerText = fundingString
-    }
-    
     if (bootcamp.locations.length > 1){
         addressString = "Addresses: <br>"
         for(var i = 0; i < bootcamp.locations.length; i++){
@@ -104,14 +81,68 @@ var BootcampDetailsView = function(detailsElement) {
     
     descTag.innerText = bootcamp.details
     
-    websiteTag.innerText = bootcamp.website
+    websiteTag.href = bootcamp.website
+    websiteTag.innerText = "Website"
 
+    var allDetailsTag = document.createElement("article");
+    var priceLengthBox = document.createElement("section");
+    var skillsBox = document.createElement("section");
+    var otherSection = document.createElement("section");
 
+    var descriptiveBox = document.createElement("section");
+    var locationsBox = document.createElement("section");
+
+    var mapBox = document.createElement("section");
+    var addressWebBox = document.createElement("section");
+
+    priceLengthBox.appendChild(priceTag);
+    priceLengthBox.appendChild(weeksTag);
+    skillsBox.appendChild(langTag);
+    skillsBox.appendChild(coreSkillsTag);
+    skillsBox.appendChild(tasterTag);
+
+    if (bootcamp.qualification){
+        var qualificationTag = document.createElement("p");
+        qualificationTag.innerText = "Qualification: " + bootcamp.qualificationName
+        descriptiveBox.appendChild(qualificationTag);
+    }
+
+    if (bootcamp.depositAmount > 0){
+        var depositTag = document.createElement("p");
+        depositTag.innerText = bootcamp.deposit[0];
+        descriptiveBox.appendChild(depositTag);
+    }
+
+    if (bootcamp.fundingOptions.length !== 0){
+        fundingString = "Funding Options: "
+        for(var i = 0; i < bootcamp.fundingOptions.length; i++){
+            if(i === (bootcamp.fundingOptions.length - 1)){
+                fundingString + bootcamp.fundingOptions[i];
+            } else {
+                fundingString + bootcamp.fundingOptions[i] + ", ";
+            }
+        }
+        fundingTag.innerText = fundingString;
+        descriptiveBox.appendChild(fundingTag);
+    }
+
+    descriptiveBox.appendChild(descTag);
+    addressWebBox.appendChild(addressTag);
+    addressWebBox.appendChild(websiteTag);
+    allDetailsTag.appendChild(priceLengthBox);
+    allDetailsTag.appendChild(skillsBox);
+    otherSection.appendChild(descriptiveBox);
+    locationsBox.appendChild(mapBox);
+    locationsBox.appendChild(addressWebBox);
+    locationsBox.appendChild(mapBox);
+    otherSection.appendChild(locationsBox);
+    allDetailsTag.appendChild(otherSection);
+
+    var main = document.querySelector('#all-bootcamps');
     while (main.hasChildNodes()) {
         main.removeChild(main.lastChild);
     }
 
-    var main = document.querySelector('#all-bootcamps');
-    this.detailsElement.appendChild(wholeArticle);
+    
     window.scrollTo(0, 0);
   } 
