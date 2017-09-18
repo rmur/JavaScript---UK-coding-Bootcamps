@@ -32,19 +32,21 @@ var BootcampDetailsView = function(detailsElement) {
     languagesString = "Languages: "
     for(var i = 0; i < bootcamp.languages.length; i++){
         if(i === (bootcamp.languages.length - 1)){
-            languagesString + bootcamp.languages[i];
+            languagesString += bootcamp.languages[i];
         } else {
-            languagesString + bootcamp.languages[i] + ", ";
+            languagesString += bootcamp.languages[i] + ", ";
+            console.log(languagesString);
         }
     }
     langTag.innerText = languagesString;
     
+    
     coreSkillsString = "Core Skills: "
     for(var i = 0; i < bootcamp.coreSkills.length; i++){
         if(i === (bootcamp.coreSkills.length - 1)){
-            coreSkillsString + bootcamp.coreSkills[i];
+            coreSkillsString += bootcamp.coreSkills[i];
         } else {
-            coreSkillsString + bootcamp.coreSkills[i] + ", ";
+            coreSkillsString += bootcamp.coreSkills[i] + ", ";
         }
     }
     coreSkillsTag.innerText = coreSkillsString;
@@ -53,9 +55,9 @@ var BootcampDetailsView = function(detailsElement) {
     locationsString = "Locations: "
     for(var i = 0; i < bootcamp.locations.length; i++){
         if(i === (bootcamp.locations.length - 1)){
-            locationsString + bootcamp.locations[i].city;
+            locationsString += bootcamp.locations[i].city;
         } else {
-            locationsString + bootcamp.locations[i].city + ", ";
+            locationsString += bootcamp.locations[i].city + ", ";
         }
     }
     locationsTag.innerText = locationsString
@@ -68,9 +70,9 @@ var BootcampDetailsView = function(detailsElement) {
         addressString = "Addresses: <br>"
         for(var i = 0; i < bootcamp.locations.length; i++){
             if(i === (bootcamp.locations.length - 1)){
-                addressString + bootcamp.locations[i].address;
+                addressString += bootcamp.locations[i].address;
             } else {
-                addressString + bootcamp.locations[i].address + "<br>";
+                addressString += bootcamp.locations[i].address + "<br>";
             }
         } 
     } else {
@@ -110,7 +112,7 @@ var BootcampDetailsView = function(detailsElement) {
 
     if (bootcamp.depositAmount > 0){
         var depositTag = document.createElement("p");
-        depositTag.innerText = bootcamp.depositAmount;
+        depositTag.innerText = "Deposit: " + bootcamp.depositAmount;
         descriptiveBox.appendChild(depositTag);
     }
 
@@ -118,9 +120,9 @@ var BootcampDetailsView = function(detailsElement) {
         fundingString = "Funding Options: "
         for(var i = 0; i < bootcamp.fundingOptions.length; i++){
             if(i === (bootcamp.fundingOptions.length - 1)){
-                fundingString + bootcamp.fundingOptions[i];
+                fundingString += bootcamp.fundingOptions[i];
             } else {
-                fundingString + bootcamp.fundingOptions[i] + ", ";
+                fundingString += bootcamp.fundingOptions[i] + ", ";
             }
         }
         fundingTag.innerText = fundingString;
@@ -139,7 +141,7 @@ var BootcampDetailsView = function(detailsElement) {
     otherSection.appendChild(locationsBox);
     allDetailsTag.appendChild(otherSection);
     this.detailsElement.appendChild(allDetailsTag);
-    
+
     var allBootcamps = document.querySelector('#all-bootcamps');
     while (allBootcamps.hasChildNodes()) {
         allBootcamps.removeChild(allBootcamps.lastChild);
