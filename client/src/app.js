@@ -3,7 +3,8 @@ var BootcampDetailsView = require('./views/bootcamp_details_view.js');
 var AjaxRequest = require('./services/ajax_request.js');
 
 var app = function(){
-     
+    var favouritesdata = new AjaxRequest('http://localhost:3000/favourites')
+
     var detailsTag = document.querySelector("#bootcamp-details");
     var bootcampDetailsView = new BootcampDetailsView(detailsTag);
 

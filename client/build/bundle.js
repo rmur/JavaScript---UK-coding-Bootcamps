@@ -72,7 +72,8 @@ var BootcampDetailsView = __webpack_require__(2);
 var AjaxRequest = __webpack_require__(3);
 
 var app = function(){
-     
+    var favouritesdata = new AjaxRequest('http://localhost:3000/favourites')
+
     var detailsTag = document.querySelector("#bootcamp-details");
     var bootcampDetailsView = new BootcampDetailsView(detailsTag);
 
