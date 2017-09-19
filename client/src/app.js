@@ -56,6 +56,15 @@ var app = function(){
         
     })
 
+    var lengthInput = document.querySelector("#lengthInput");
+    lengthInput.addEventListener("input", function(){
+        console.log(this);
+        console.log(bootcampsData.data);
+
+            filter = new Filter()
+            filter.lengthFilter(bootcampsData.data);
+    })
+
     
 
 

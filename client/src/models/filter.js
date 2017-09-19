@@ -45,7 +45,24 @@ Filter.prototype.priceFilter = function(searchableData){
 
 }
 
-//     var locationInput = document.getElementById('locationInput');
+Filter.prototype.lengthFilter = function(searchableData){
+    var dataToRender = [];
+
+    var lengthInput = document.getElementById('lengthInput');
+    var lengthFilter = lengthInput.value;
+    console.log(lengthFilter);
+
+    for (var i = 0; i < searchableData.length; i++) {
+        if(searchableData[i].lengthWeeks <= lengthFilter){
+            dataToRender.push(searchableData[i]);
+        }
+        var main = document.querySelector("#all-bootcamps");
+        var allBootcampsView = new AllBootcampsView(main);
+        allBootcampsView.render(dataToRender);
+    }
+}
+
+ // < searchableData.length;  ++r locationInput = document.getElementById('locationInput');
 //     var langInput = document.getElementById('langInput');
 //     var priceInput = document.getElementById('priceInput');
 //     var lengthInput = document.getElementById('lengthInput');
