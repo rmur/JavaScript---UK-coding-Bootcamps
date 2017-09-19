@@ -1,6 +1,5 @@
 var AllBootcampsView = function(main){
     this.main = main;
-    console.log(this.main);
     this.onChange = null;
 }
 
@@ -15,7 +14,7 @@ AllBootcampsView.prototype.render = function(data){
             bootcampName.innerText = this.bootcampsData[i].name;
             logo.src = this.bootcampsData[i].logo;
             logo.alt = "Logo of " + this.bootcampsData[i].name;
-            logo.width = 500;
+            // logo.width = 500;
             
             articleTag.appendChild(logo);
             articleTag.appendChild(bootcampName);
