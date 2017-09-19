@@ -8,7 +8,7 @@ Filter.prototype.locationFilter = function(searchableData){
 // Declare variables
     var dataToRender = [];
 
-    var locationInput = document.getElementById('locationInput');
+    var locationInput = document.querySelector('#locationInput');
     var locationFilter = locationInput.value.toUpperCase();
 
     for (var mainI = 0; mainI < searchableData.length; mainI++) {
@@ -23,16 +23,16 @@ Filter.prototype.locationFilter = function(searchableData){
         }
         var main = document.querySelector("#all-bootcamps");
         var allBootcampsView = new AllBootcampsView(main);
-        console.log(dataToRender);
+        // console.log(dataToRender);
         allBootcampsView.render(dataToRender);
     }
     
 Filter.prototype.priceFilter = function(searchableData){
     var dataToRender = [];
 
-    var priceInput = document.getElementById('priceInput');
+    var priceInput = document.querySelector('#priceInput');
     var priceFilter = priceInput.value;
-    console.log(priceFilter)
+    // console.log(priceFilter)
 
     for (var i = 0; i < searchableData.length; i++) {
         if(searchableData[i].price[0] <= priceFilter){
@@ -49,26 +49,30 @@ Filter.prototype.langFilter = function(searchableData){
     // Declare variables
         var dataToRender = [];
     
-        var langInput = document.getElementById('langInput');
-        var langFilter = langFilter.value.toUpperCase();
-    
+        var langInput = document.querySelector('#langInput');
+        var langFilter = langInput.value.toUpperCase();
+        console.log(langInput);
+        
         for (var mainI = 0; mainI < searchableData.length; mainI++) {
             if (searchableData[mainI].languages.length > 1){
                 for (var i = 0; i < searchableData[mainI].languages.length; i++){
                     if(searchableData[mainI].languages[i].toUpperCase().includes(langFilter)){
                         dataToRender.push(searchableData[mainI]); }
                     }
-                } else if (searchableData[mainI].languages[0].toUpperCase().includes(langFilter)){
+                } else if (searchableData[mainI].languages.length > 0 && searchableData[mainI].languages[0].toUpperCase().includes(langFilter)){
                     dataToRender.push(searchableData[mainI]);
                 }
             }
             var main = document.querySelector("#all-bootcamps");
             var allBootcampsView = new AllBootcampsView(main);
-            console.log(dataToRender);
+            // console.log(dataToRender);
             allBootcampsView.render(dataToRender);
         }
 
 
+    var lengthInput = document.getElementById('lengthInput');
+    var lengthFilter = lengthInput.value;
+    // console.log(lengthFilter);
 
 
 
