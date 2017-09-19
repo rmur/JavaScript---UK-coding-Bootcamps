@@ -150,7 +150,7 @@ var BootcampDetailsView = function(detailsElement) {
 
     if (bootcamp.depositAmount > 0){
         var depositTag = document.createElement("p");
-        depositTag.innerText = "Deposit: " + bootcamp.depositAmount;
+        depositTag.innerText = "Deposit: £" + bootcamp.depositAmount;
         descriptiveBox.appendChild(depositTag);
     }
 
