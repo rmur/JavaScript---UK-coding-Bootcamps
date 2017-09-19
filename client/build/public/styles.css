@@ -403,7 +403,6 @@ textarea {
  * 1. Add the correct display in Edge, IE, and Firefox.
  */
 
-details, /* 1 */
 menu {
   display: block;
 }
@@ -506,7 +505,7 @@ flex-flow: row wrap;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
-  background-color: blue;
+  background-color: lightblue;
 }
 
 #favourites article {
