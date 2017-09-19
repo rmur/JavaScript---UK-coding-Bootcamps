@@ -6,7 +6,6 @@ var AjaxRequest = require('./services/ajax_request.js');
 var app = function(){
     var favouritesData = new AjaxRequest('http://localhost:3000/favourites');
     var favouritesTag = document.querySelector("#favourites");
-    console.log(favouritesTag);
     var favouritesView = new FavouritesView(favouritesTag);
     favouritesData.get(favouritesView.render.bind(favouritesView));
 

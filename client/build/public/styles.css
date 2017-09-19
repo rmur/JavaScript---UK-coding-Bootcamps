@@ -501,3 +501,23 @@ flex-flow: row wrap;
   align-self: center;
   flex-basis: auto;
 }
+
+#favourites {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  background-color: blue;
+}
+
+#favourites article {
+  flex: 1;
+  height: 100%;
+  margin: 10px;
+  padding: 10px;
+  border: 10px;
+  width: 300px;
+  background-color: white;
+  text-align: center;
+  align-self: center;
+  flex-basis: auto;
+}
