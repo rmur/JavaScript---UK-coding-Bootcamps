@@ -5,7 +5,6 @@ var Filter = function() {
 }
  
 Filter.prototype.locationFilter = function(searchableData){
-// Declare variables
     var dataToRender = [];
 
     var locationInput = document.querySelector('#locationInput');
@@ -23,7 +22,6 @@ Filter.prototype.locationFilter = function(searchableData){
         }
         var main = document.querySelector("#all-bootcamps");
         var allBootcampsView = new AllBootcampsView(main);
-        // console.log(dataToRender);
         allBootcampsView.render(dataToRender);
     }
     
@@ -32,7 +30,6 @@ Filter.prototype.priceFilter = function(searchableData){
 
     var priceInput = document.querySelector('#priceInput');
     var priceFilter = priceInput.value;
-    // console.log(priceFilter)
 
     for (var i = 0; i < searchableData.length; i++) {
         if(searchableData[i].price[0] <= priceFilter){
@@ -45,13 +42,12 @@ Filter.prototype.priceFilter = function(searchableData){
 
 }
 
+
 Filter.prototype.langFilter = function(searchableData){
-    // Declare variables
         var dataToRender = [];
     
         var langInput = document.querySelector('#langInput');
         var langFilter = langInput.value.toUpperCase();
-        console.log(langInput);
         
         for (var mainI = 0; mainI < searchableData.length; mainI++) {
             if (searchableData[mainI].languages.length > 1){
@@ -69,24 +65,22 @@ Filter.prototype.langFilter = function(searchableData){
             allBootcampsView.render(dataToRender);
         }
 
+Filter.prototype.lengthFilter = function(searchableData){
+    var dataToRender = [];
 
     var lengthInput = document.getElementById('lengthInput');
     var lengthFilter = lengthInput.value;
-    // console.log(lengthFilter);
 
+    for (var i = 0; i < searchableData.length; i++) {
+        if(searchableData[i].lengthWeeks <= lengthFilter){
+            dataToRender.push(searchableData[i]);
+        }
+        var main = document.querySelector("#all-bootcamps");
+        var allBootcampsView = new AllBootcampsView(main);
+        allBootcampsView.render(dataToRender);
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-//     var locationInput = document.getElementById('locationInput');
 //     var langInput = document.getElementById('langInput');
 //     var priceInput = document.getElementById('priceInput');
 //     var lengthInput = document.getElementById('lengthInput');

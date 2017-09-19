@@ -28,17 +28,12 @@ var app = function(){
 
     allBootcampsView.main.addEventListener("click", function(event){
         var chosenCamp = bootcampsData.data[event.path[1].id]
-        // console.log(chosenCamp);
-        // console.log(event.path[1].id);
         bootcampDetailsView.render(chosenCamp);
 
     });
 
     var locationInput = document.querySelector("#locationInput");
     locationInput.addEventListener("keyup", function(){
-        // console.log(this);
-        // console.log(bootcampsData.data);
-
         if(this !== ""){
             filter = new Filter()
             filter.locationFilter(bootcampsData.data);
@@ -48,40 +43,19 @@ var app = function(){
 
     var priceInput = document.querySelector("#priceInput");
     priceInput.addEventListener("input", function(){
-        // console.log(this);
-        // console.log(bootcampsData.data);
-
             filter = new Filter()
             filter.priceFilter(bootcampsData.data);
         
     })
 
-<<<<<<< Updated upstream
-
-    var langInput = document.querySelector("#langInput");
-    langInput.addEventListener("keyup", function(){
-        console.log(this);
-        console.log(bootcampsData.data);
-=======
     var lengthInput = document.querySelector("#lengthInput");
     lengthInput.addEventListener("input", function(){
-        // console.log(this);
-        // console.log(bootcampsData.data);
->>>>>>> Stashed changes
-
             filter = new Filter()
-            filter.langFilter(bootcampsData.data);
-        
+            filter.lengthFilter(bootcampsData.data);
     })
 
-<<<<<<< Updated upstream
-    
-=======
     var langInput = document.querySelector("#langInput");
     langInput.addEventListener("keyup", function(){
-        // console.log(this);
-        // console.log(bootcampsData.data);
-
             filter = new Filter()
             filter.langFilter(bootcampsData.data);
     })
@@ -92,7 +66,6 @@ var app = function(){
         allBootcampsView.render(bootcampsData.data);
         favouritesView.render(favouritesData.data);
     })
->>>>>>> Stashed changes
 
     favouritesView.main.addEventListener("click", function(event){
         var chosenCamp = favouritesData.data[event.path[1].id]
@@ -108,5 +81,3 @@ var app = function(){
 
 
 window.addEventListener('load', app);
-
-
