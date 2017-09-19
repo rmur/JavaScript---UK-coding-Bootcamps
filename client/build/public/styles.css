@@ -403,7 +403,6 @@ textarea {
  * 1. Add the correct display in Edge, IE, and Firefox.
  */
 
-details, /* 1 */
 menu {
   display: block;
 }
@@ -454,8 +453,18 @@ body {
   }
 
 #logo {
+  margin: 5px;
   max-height: 150px;
   max-width: 150px;
+  height: auto;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+  object-fit: cover;
+  width:-webkit-fill-available; 
   height: auto;
 }
 
@@ -479,12 +488,35 @@ justify-content: center;
 flex-flow: row wrap;
 }
 
-article {
+#all-bootcamps article {
   flex: 1;
+  height: 100%;
   margin: 10px;
   padding: 10px;
   border: 10px;
+  width: 300px;
   background-color: white;
   text-align: center;
-  
+  align-self: center;
+  flex-basis: auto;
+}
+
+#favourites {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  background-color: lightblue;
+}
+
+#favourites article {
+  flex: 1;
+  height: 100%;
+  margin: 10px;
+  padding: 10px;
+  border: 10px;
+  width: 300px;
+  background-color: white;
+  text-align: center;
+  align-self: center;
+  flex-basis: auto;
 }
