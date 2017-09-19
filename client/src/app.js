@@ -1,9 +1,14 @@
 var AllBootcampsView = require('./views/all_bootcamps_view.js');
 var BootcampDetailsView = require('./views/bootcamp_details_view.js');
 var AjaxRequest = require('./services/ajax_request.js');
+var WelcomePopUpWindow = require('./views/welcome_pop_up_window.js') // require pop up window
 
 var app = function(){
-     
+    var welcomePopUpWindow = new WelcomePopUpWindow(main);
+    welcomePopUpWindow.render();
+
+
+
     var detailsTag = document.querySelector("#bootcamp-details");
     var bootcampDetailsView = new BootcampDetailsView(detailsTag);
 
@@ -18,7 +23,9 @@ var app = function(){
         console.log(chosenCamp);
         console.log(event.path[1].id);
         bootcampDetailsView.render(chosenCamp);
-    })
+
+    });
+
 
     
 
