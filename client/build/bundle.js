@@ -69,10 +69,15 @@
 
 var AllBootcampsView = __webpack_require__(1);
 var BootcampDetailsView = __webpack_require__(2);
+var FavouritesView = __webpack_require__(4);
 var AjaxRequest = __webpack_require__(3);
 
 var app = function(){
-    var favouritesdata = new AjaxRequest('http://localhost:3000/favourites')
+    var favouritesData = new AjaxRequest('http://localhost:3000/favourites');
+    var favouritesTag = document.querySelector("#favourites");
+    console.log(favouritesTag);
+    var favouritesView = new FavouritesView(favouritesTag);
+    favouritesData.get(favouritesView.render.bind(favouritesView));
 
     var detailsTag = document.querySelector("#bootcamp-details");
     var bootcampDetailsView = new BootcampDetailsView(detailsTag);
@@ -352,6 +357,39 @@ var AjaxRequest= function(url) {
   }
   
   module.exports = AjaxRequest;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+var FavouritesView = function(main){
+    this.main = main;
+    this.onChange = null;
+}
+
+FavouritesView.prototype.render = function(data){
+   if (data) this.bootcampsData = data;
+
+        for (var i = 0 ; i < this.bootcampsData.length; i++){         
+            var articleTag = document.createElement("article");
+            var logo = document.createElement("img");
+            var bootcampName = document.createElement("h3");
+            articleTag.id = i;
+            bootcampName.innerText = this.bootcampsData[i].name;
+            logo.src = this.bootcampsData[i].logo;
+            logo.alt = "Logo of " + this.bootcampsData[i].name;
+            // logo.width = 500;
+            
+            articleTag.appendChild(logo);
+            articleTag.appendChild(bootcampName);
+            this.main.appendChild(articleTag);
+        }
+
+}
+
+
+
+module.exports = FavouritesView;
 
 /***/ })
 /******/ ]);

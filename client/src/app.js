@@ -1,9 +1,14 @@
 var AllBootcampsView = require('./views/all_bootcamps_view.js');
 var BootcampDetailsView = require('./views/bootcamp_details_view.js');
+var FavouritesView = require('./views/favourites_view.js');
 var AjaxRequest = require('./services/ajax_request.js');
 
 var app = function(){
-    var favouritesdata = new AjaxRequest('http://localhost:3000/favourites')
+    var favouritesData = new AjaxRequest('http://localhost:3000/favourites');
+    var favouritesTag = document.querySelector("#favourites");
+    console.log(favouritesTag);
+    var favouritesView = new FavouritesView(favouritesTag);
+    favouritesData.get(favouritesView.render.bind(favouritesView));
 
     var detailsTag = document.querySelector("#bootcamp-details");
     var bootcampDetailsView = new BootcampDetailsView(detailsTag);
