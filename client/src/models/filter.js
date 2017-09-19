@@ -69,6 +69,7 @@ Filter.prototype.lengthFilter = function(searchableData){
 }
 
 Filter.prototype.locationLengthFilter = function(searchableData){
+    var firstFilter = [];
     var dataToRender = [];
     var locationInput = document.querySelector('#locationInput');
     var locationFilter = locationInput.value.toUpperCase();
@@ -79,19 +80,47 @@ Filter.prototype.locationLengthFilter = function(searchableData){
         if (searchableData[mainI].locations.length > 1){
             for (var i = 0; i < searchableData[mainI].locations.length; i++){
                 if(searchableData[mainI].locations[i].city.toUpperCase().includes(locationFilter)){
-                        dataToRender.push(searchableData[mainI]); 
+                    firstFilter.push(searchableData[mainI]); 
                 }
             }
         } else if (searchableData[mainI].locations[0].city.toUpperCase().includes(locationFilter)){
-            dataToRender.push(searchableData[mainI]);
+            firstFilter.push(searchableData[mainI]);
         }
     }
-    for (var i = (dataToRender.length - 1); i > -1; i--) {
-        if(dataToRender[i].lengthWeeks > lengthFilter){
-            dataToRender.splice(i, 1);   
+    for (var i = 0; i < firstFilter.length ; i++) {
+        if(firstFilter[i].lengthWeeks <= lengthFilter){
+            dataToRender.push(firstFilter[i]);
         }
     }
     return dataToRender;
 }
+
+Filter.prototype.locationPriceFilter = function(searchableData){
+    var firstFilter = [];
+    var dataToRender = [];
+    var locationInput = document.querySelector('#locationInput');
+    var locationFilter = locationInput.value.toUpperCase();
+    var priceInput = document.querySelector('#priceInput');
+    var priceFilter = priceInput.value;
+
+    for (var mainI = 0; mainI < searchableData.length; mainI++) {
+        if (searchableData[mainI].locations.length > 1){
+            for (var i = 0; i < searchableData[mainI].locations.length; i++){
+                if(searchableData[mainI].locations[i].city.toUpperCase().includes(locationFilter)){
+                    firstFilter.push(searchableData[mainI]); 
+                } 
+            }   
+        } else if (searchableData[mainI].locations[0].city.toUpperCase().includes(locationFilter)){
+            firstFilter.push(searchableData[mainI]);
+        }
+    } 
+    for (var i = 0; i < firstFilter.length ; i++) {
+        if(firstFilter[i].price[0] <= priceFilter){
+            dataToRender.push(firstFilter[i]);
+        }
+    }
+    return dataToRender;
+}
+
 
 module.exports = Filter;
