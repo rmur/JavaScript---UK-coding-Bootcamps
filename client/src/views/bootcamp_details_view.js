@@ -1,3 +1,5 @@
+var MapWrapper = require('../models/map_wrapper.js');
+
 var BootcampDetailsView = function(detailsElement) {
     this.detailsElement = detailsElement;
   }
@@ -96,8 +98,26 @@ var BootcampDetailsView = function(detailsElement) {
     var locationsBox = document.createElement("section");
 
     var mapBox = document.createElement("section");
-    var addressWebBox = document.createElement("section");
+    var mapTag = document.createElement("mark");
+    mapTag.id = "details-map";
 
+    var coords = {
+        lat: bootcamp.locations[0].lat,
+        lng: bootcamp.locations[0].lng
+    }
+
+    var map = new MapWrapper(mapTag, coords, 5);
+
+    for (var i = 0 ; i < bootcamp.locations.length ; i++){
+        var coords = {
+        lat: bootcamp.locations[i].lat,
+        lng: bootcamp.locations[i].lng 
+        }
+        map.addMarker(coords);
+    }
+    mapBox.appendChild(mapTag);
+    
+    var addressWebBox = document.createElement("section");
     priceLengthBox.appendChild(priceTag);
     priceLengthBox.appendChild(weeksTag);
     skillsBox.appendChild(langTag);

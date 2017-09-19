@@ -68,8 +68,8 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var AllBootcampsView = __webpack_require__(1);
-var BootcampDetailsView = __webpack_require__(3);
-var AjaxRequest = __webpack_require__(2);
+var BootcampDetailsView = __webpack_require__(2);
+var AjaxRequest = __webpack_require__(3);
 
 var app = function(){
      
@@ -138,65 +138,9 @@ module.exports = AllBootcampsView;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-var AjaxRequest= function(url) {
-    this.url = url;
-    this.onUpdate = null;
-  }
-  
-  AjaxRequest.prototype.get = function(callback) {
-    var request = new XMLHttpRequest();
-    request.open("GET", this.url);
-    request.onload = function(){
-      if(request.status === 200){
-        var jsonString = request.responseText;
-        var bootcamps = JSON.parse(jsonString);
-        if (bootcamps[0] && !bootcamps[0].id) {
-          for (var i = 0 ; i < bootcamps.length; i++) {
-            bootcamps[i].id = i;
-          }
-       }
-       this.data = bootcamps;
-      callback(bootcamps);
-      }
-    }.bind(this);
-    request.send();
-  }
-  
-  AjaxRequest.prototype.post = function(callback, data) {
-  
-    var request = new XMLHttpRequest();
-    request.open("POST", this.url);
-    request.setRequestHeader("Content-Type", "application/json");
-    request.onload = function(){
-      if(request.status === 200){
-        var jsonString = request.responseText;
-        callback(JSON.parse(jsonString));
-      }
-    }.bind(this);
-    request.send(JSON.stringify(data));
-  }
-  
-  AjaxRequest.prototype.delete = function(index) {
-  
-    var request = new XMLHttpRequest();
-    request.open("DELETE", this.url + "/" + index);
-    request.setRequestHeader("Content-Type", "application/json");
-    request.onload = function(){
-      if(request.status === 200){
-        var jsonString = request.responseText;
-        this.characters = JSON.parse(jsonString);
-      }
-    }.bind(this);
-    request.send();
-  }
-  
-  module.exports = AjaxRequest;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
+var MapWrapper = __webpack_require__(4);
 
 var BootcampDetailsView = function(detailsElement) {
     this.detailsElement = detailsElement;
@@ -296,8 +240,26 @@ var BootcampDetailsView = function(detailsElement) {
     var locationsBox = document.createElement("section");
 
     var mapBox = document.createElement("section");
-    var addressWebBox = document.createElement("section");
+    var mapTag = document.createElement("mark");
+    mapTag.id = "details-map";
 
+    var coords = {
+        lat: bootcamp.locations[0].lat,
+        lng: bootcamp.locations[0].lng
+    }
+
+    var map = new MapWrapper(mapTag, coords, 5);
+
+    for (var i = 0 ; i < bootcamp.locations.length ; i++){
+        var coords = {
+        lat: bootcamp.locations[i].lat,
+        lng: bootcamp.locations[i].lng 
+        }
+        map.addMarker(coords);
+    }
+    mapBox.appendChild(mapTag);
+    
+    var addressWebBox = document.createElement("section");
     priceLengthBox.appendChild(priceTag);
     priceLengthBox.appendChild(weeksTag);
     skillsBox.appendChild(langTag);
@@ -352,6 +314,86 @@ var BootcampDetailsView = function(detailsElement) {
   }
 
   module.exports = BootcampDetailsView;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+var AjaxRequest= function(url) {
+    this.url = url;
+    this.onUpdate = null;
+  }
+  
+  AjaxRequest.prototype.get = function(callback) {
+    var request = new XMLHttpRequest();
+    request.open("GET", this.url);
+    request.onload = function(){
+      if(request.status === 200){
+        var jsonString = request.responseText;
+        var bootcamps = JSON.parse(jsonString);
+        if (bootcamps[0] && !bootcamps[0].id) {
+          for (var i = 0 ; i < bootcamps.length; i++) {
+            bootcamps[i].id = i;
+          }
+       }
+       this.data = bootcamps;
+      callback(bootcamps);
+      }
+    }.bind(this);
+    request.send();
+  }
+  
+  AjaxRequest.prototype.post = function(callback, data) {
+  
+    var request = new XMLHttpRequest();
+    request.open("POST", this.url);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.onload = function(){
+      if(request.status === 200){
+        var jsonString = request.responseText;
+        callback(JSON.parse(jsonString));
+      }
+    }.bind(this);
+    request.send(JSON.stringify(data));
+  }
+  
+  AjaxRequest.prototype.delete = function(index) {
+  
+    var request = new XMLHttpRequest();
+    request.open("DELETE", this.url + "/" + index);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.onload = function(){
+      if(request.status === 200){
+        var jsonString = request.responseText;
+        this.characters = JSON.parse(jsonString);
+      }
+    }.bind(this);
+    request.send();
+  }
+  
+  module.exports = AjaxRequest;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+var MapWrapper = function(container, coords, zoom) {
+  this.googleMap = new google.maps.Map(container, {
+    center: coords,
+    zoom: zoom
+  });
+  this.markers = [];
+};
+
+MapWrapper.prototype.addMarker = function(coords){
+  var marker = new google.maps.Marker({
+    position: coords,
+    map: this.googleMap
+  });
+  this.markers.push(marker);
+};
+
+module.exports = MapWrapper;
 
 /***/ })
 /******/ ]);
