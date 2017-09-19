@@ -122,5 +122,41 @@ Filter.prototype.locationPriceFilter = function(searchableData){
     return dataToRender;
 }
 
+Filter.prototype.locationLangFilter = function(searchableData){
+    var firstFilter = [];
+    var dataToRender = [];
+    var locationInput = document.querySelector('#locationInput');
+    var locationFilter = locationInput.value.toUpperCase();
+    var langInput = document.querySelector('#langInput');
+    var langFilter = langInput.value.toUpperCase();
+
+    for (var mainI = 0; mainI < searchableData.length; mainI++) {
+        if (searchableData[mainI].locations.length > 1){
+            for (var i = 0; i < searchableData[mainI].locations.length; i++){
+                if(searchableData[mainI].locations[i].city.toUpperCase().includes(locationFilter)){
+                    firstFilter.push(searchableData[mainI]); 
+                } 
+            }   
+        } else if (searchableData[mainI].locations[0].city.toUpperCase().includes(locationFilter)){
+            firstFilter.push(searchableData[mainI]);
+        }
+    }
+    for (var mainI = 0; mainI < firstFilter.length; mainI++) {
+        if (firstFilter[mainI].languages.length > 1){
+            for (var i = 0; i < firstFilter[mainI].languages.length; i++){
+                if(firstFilter[mainI].languages[i].toUpperCase().includes(langFilter)){
+                        dataToRender.push(firstFilter[mainI]); 
+                } 
+            }
+        } else if (firstFilter[mainI].languages.length > 0 && firstFilter[mainI].languages[0].toUpperCase().includes(langFilter)){
+            dataToRender.push(firstFilter[mainI]);
+        }
+    }
+    return dataToRender; 
+
+
+
+}
+
 
 module.exports = Filter;
