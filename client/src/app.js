@@ -56,7 +56,10 @@ var app = function(){
         
     })
 
-    
+    var logo = document.querySelector("#logo");
+    logo.addEventListener("click", function(){
+        allBootcampsView.render(bootcampsData.data)
+    })
 
 
 };
