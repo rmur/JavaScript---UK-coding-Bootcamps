@@ -5,7 +5,7 @@ var FavouritesView = function(main){
 
 FavouritesView.prototype.render = function(data){
    if (data) this.favouritesData = data;
-
+    this.main.innerText = "";
    var favTitleTag = document.createElement("h2");
    favTitleTag.innerText = "Favourites"
    this.main.appendChild(favTitleTag);

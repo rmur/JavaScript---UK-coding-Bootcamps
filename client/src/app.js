@@ -6,7 +6,7 @@ var Filter = require('./models/filter.js');
 var WelcomePopUpWindow = require('./views/welcome_pop_up_window.js') // require pop up window
 
 var app = function(){
-
+    filter = new Filter()
     var welcomePopUpWindow = new WelcomePopUpWindow(main);
     welcomePopUpWindow.render();
 
@@ -29,35 +29,37 @@ var app = function(){
     allBootcampsView.main.addEventListener("click", function(event){
         var chosenCamp = bootcampsData.data[event.path[1].id]
         bootcampDetailsView.render(chosenCamp);
-
+        favouritesView.render(favouritesData.data);
     });
 
     var locationInput = document.querySelector("#locationInput");
     locationInput.addEventListener("keyup", function(){
-        if(this !== ""){
-            filter = new Filter()
-            filter.locationFilter(bootcampsData.data);
-        }
-        
+        var dataToRender = filter.locationFilter(bootcampsData.data);
+        allBootcampsView.render(dataToRender);
     })
 
     var priceInput = document.querySelector("#priceInput");
     priceInput.addEventListener("input", function(){
-            filter = new Filter()
-            filter.priceFilter(bootcampsData.data);
-        
+        var dataToRender = filter.priceFilter(bootcampsData.data);
+        allBootcampsView.render(dataToRender);
     })
 
     var lengthInput = document.querySelector("#lengthInput");
     lengthInput.addEventListener("input", function(){
-            filter = new Filter()
-            filter.lengthFilter(bootcampsData.data);
+        var dataToRender = filter.lengthFilter(bootcampsData.data);
+        allBootcampsView.render(dataToRender);
     })
 
     var langInput = document.querySelector("#langInput");
     langInput.addEventListener("keyup", function(){
-            filter = new Filter()
-            filter.langFilter(bootcampsData.data);
+        var dataToRender =filter.langFilter(bootcampsData.data);
+        allBootcampsView.render(dataToRender);
+    })
+
+    var filterButton = document.querySelector("#filter");
+    filterButton.addEventListener("click", function(){
+        var dataToRender =  filter.locationLengthFilter(bootcampsData.data);
+        allBootcampsView.render(dataToRender);
     })
 
 
