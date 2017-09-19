@@ -4,7 +4,7 @@ var WelcomePopUpWindow = function(main){
 
 WelcomePopUpWindow.prototype.render = function(){
   var headerText = "This is header!"
-  this.text = "This is my text in Pop-up Box";
+  this.text = "This is my text in Pop-up Box \n And this is the next line";
 
   var popUp = document.getElementById('pop-up');
 
