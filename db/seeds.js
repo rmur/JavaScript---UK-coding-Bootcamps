@@ -1,5 +1,42 @@
 use codeBootcamps;
 db.dropDatabase();
+
+db.favourites.insert({
+  name: "CodeClan",
+  website: "https://codeclan.com/",
+  logo: "https://i2.wp.com/codeclan.com/wp-content/uploads/2016/05/CodeClan-Horizontal-RGB.png?fit=869%2C320&ssl=1",
+  locations: [
+    {
+      city: "Edinburgh", 
+      lat: 55.9470, 
+      lng: -3.2020, 
+      address: "37 Castle Terrace, Edinburgh, EH1 2EL"
+    }, 
+    {
+      city: "Glasgow", 
+      lat: 55.857044, 
+      lng: -4.244319, 
+      address: "Tontine, 20 Trongate G1 5NA"
+    }
+    ],
+  twitter: "https://twitter.com/CodeClanScot",
+  price: [5000, 5000],
+  languages: ["Ruby", "Java", "JavaScript"],
+  lengthWeeks: 16,
+  qualification: true,
+  qualificationName: "PDA at SCQF Level 8",
+  fullTime: true,
+  partTime: true,
+  remoteStudying: false,
+  fundingOptions: ["Professional and Career Development Loans", "EdAid", "Oil & Gas Transition Training Fund"],
+  entryRequirements: ["Interview"],
+  details: "CodeClan offers a range of software development courses to help kick start your career in tech and deepen your digital expertise. Transform your career at CodeClan by learning to code in our 16 week software development course. You don’t need to be a mathematician or have any previous technical experience. All you need is a willingness to learn, a passion for technology and to think like a problem solver. Through our part-time learning options, you can add coding skills to your CV or build on your existing programming knowledge.",
+  taster: true,
+  depositAmount: 500,
+  paymentOptions: ["Single", "Modular"],
+  coreSkills: ["TDD", "HTML", "CSS", "NoSQL", "SQL", "React", "Ruby on Rails", "SOLID"]
+});
+
 db.bootcamps.insert(
 [
   {
