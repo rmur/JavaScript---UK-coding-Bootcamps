@@ -60,7 +60,8 @@ var app = function(){
     filterButton.addEventListener("click", function(){
         // var dataToRender =  filter.locationLengthFilter(bootcampsData.data);
         // var dataToRender =  filter.locationPriceFilter(bootcampsData.data);
-        var dataToRender =  filter.locationLangFilter(bootcampsData.data);
+        // var dataToRender =  filter.locationLangFilter(bootcampsData.data);
+        var dataToRender =  filter.allFilter(bootcampsData.data);
         allBootcampsView.render(dataToRender);
     })
 
