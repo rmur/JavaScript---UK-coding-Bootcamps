@@ -45,6 +45,43 @@ Filter.prototype.priceFilter = function(searchableData){
 
 }
 
+Filter.prototype.langFilter = function(searchableData){
+    // Declare variables
+        var dataToRender = [];
+    
+        var langInput = document.getElementById('langInput');
+        var langFilter = langFilter.value.toUpperCase();
+    
+        for (var mainI = 0; mainI < searchableData.length; mainI++) {
+            if (searchableData[mainI].languages.length > 1){
+                for (var i = 0; i < searchableData[mainI].languages.length; i++){
+                    if(searchableData[mainI].languages[i].toUpperCase().includes(langFilter)){
+                        dataToRender.push(searchableData[mainI]); }
+                    }
+                } else if (searchableData[mainI].languages[0].toUpperCase().includes(langFilter)){
+                    dataToRender.push(searchableData[mainI]);
+                }
+            }
+            var main = document.querySelector("#all-bootcamps");
+            var allBootcampsView = new AllBootcampsView(main);
+            console.log(dataToRender);
+            allBootcampsView.render(dataToRender);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //     var locationInput = document.getElementById('locationInput');
 //     var langInput = document.getElementById('langInput');
 //     var priceInput = document.getElementById('priceInput');

@@ -56,6 +56,17 @@ var app = function(){
         
     })
 
+
+    var langInput = document.querySelector("#langInput");
+    langInput.addEventListener("keyup", function(){
+        console.log(this);
+        console.log(bootcampsData.data);
+
+            filter = new Filter()
+            filter.langFilter(bootcampsData.data);
+        
+    })
+
     
 
 
