@@ -56,18 +56,20 @@ var app = function(){
         
     })
 
-
-    var langInput = document.querySelector("#langInput");
-    langInput.addEventListener("keyup", function(){
+    var lengthInput = document.querySelector("#lengthInput");
+    lengthInput.addEventListener("input", function(){
         console.log(this);
         console.log(bootcampsData.data);
 
             filter = new Filter()
-            filter.langFilter(bootcampsData.data);
-        
+            filter.lengthFilter(bootcampsData.data);
     })
 
-    
+
+    var logo = document.querySelector("#logo");
+    logo.addEventListener("click", function(){
+        allBootcampsView.render(bootcampsData.data)
+    })
 
 
 };
@@ -76,5 +78,3 @@ var app = function(){
 
 
 window.addEventListener('load', app);
-
-

@@ -12,13 +12,28 @@ var BootcampDetailsView = function(detailsElement) {
     // }
 
     var logo = document.createElement("img");
+    // logo.id = "logo";
+
     var nameTag = document.createElement("h1");
+    // nameTag.id = "nameTag";
+
     var priceTag = document.createElement("h2");
+    // priceTag.id = "priceTag";
+
     var weeksTag = document.createElement("h2");
+    // weeksTag.id = "weeksTag";
+
     var langTag = document.createElement("h3");
+    // langTag.id ="langTag";
+
     var coreSkillsTag = document.createElement("h3");
+    // coreSkills.id = "coreSkills";
+
     var locationsTag = document.createElement("h4");
+    // locationsTag.id = "locationsTag";
+
     var tasterTag = document.createElement("p");
+    // tasterTag.id ="tasterTag";
     
     var fundingTag = document.createElement("p");
 
@@ -90,12 +105,15 @@ var BootcampDetailsView = function(detailsElement) {
     websiteTag.innerText = "Website"
 
     var allDetailsTag = document.createElement("article");
+
     var priceLengthBox = document.createElement("section");
     var skillsBox = document.createElement("section");
     var otherSection = document.createElement("section");
 
     var descriptiveBox = document.createElement("section");
+    descriptiveBox.id = "descriptiveBox";
     var locationsBox = document.createElement("section");
+    locationsBox.id = "locationsBox";
 
     var mapBox = document.createElement("section");
     var mapTag = document.createElement("mark");
