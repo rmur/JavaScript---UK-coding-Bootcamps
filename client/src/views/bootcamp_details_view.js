@@ -147,6 +147,11 @@ var BootcampDetailsView = function(detailsElement) {
         allBootcamps.removeChild(allBootcamps.lastChild);
     }
 
+    var favouritesTag = document.querySelector('#favourites');
+    while (favouritesTag.hasChildNodes()) {
+        favouritesTag.removeChild(favouritesTag.lastChild);
+    }
+
     
     window.scrollTo(0, 0);
   }
