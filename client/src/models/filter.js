@@ -1,9 +1,8 @@
-var AllBootcampsView = require('../views/all_bootcamps_view.js');
-
 var Filter = function() {
 
 }
  
+// By one
 Filter.prototype.locationFilter = function(searchableData){
     var dataToRender = [];
     var locationInput = document.querySelector('#locationInput');
@@ -68,94 +67,101 @@ Filter.prototype.lengthFilter = function(searchableData){
     return dataToRender;
 }
 
+
+// By Two
+// Location + Length
 Filter.prototype.locationLengthFilter = function(searchableData){
-    var firstFilter = [];
-    var dataToRender = [];
-    var locationInput = document.querySelector('#locationInput');
-    var locationFilter = locationInput.value.toUpperCase();
-    var lengthInput = document.getElementById('lengthInput');
-    var lengthFilter = lengthInput.value;
-    
-    for (var mainI = 0; mainI < searchableData.length; mainI++) {
-        if (searchableData[mainI].locations.length > 1){
-            for (var i = 0; i < searchableData[mainI].locations.length; i++){
-                if(searchableData[mainI].locations[i].city.toUpperCase().includes(locationFilter)){
-                    firstFilter.push(searchableData[mainI]); 
-                }
-            }
-        } else if (searchableData[mainI].locations[0].city.toUpperCase().includes(locationFilter)){
-            firstFilter.push(searchableData[mainI]);
-        }
-    }
-    for (var i = 0; i < firstFilter.length ; i++) {
-        if(firstFilter[i].lengthWeeks <= lengthFilter){
-            dataToRender.push(firstFilter[i]);
-        }
-    }
+    var firstFilter = this.locationFilter(searchableData);
+    var dataToRender = this.lengthFilter(firstFilter);
+    return dataToRender;
     return dataToRender;
 }
 
+// Location + Price
 Filter.prototype.locationPriceFilter = function(searchableData){
-    var firstFilter = [];
-    var dataToRender = [];
-    var locationInput = document.querySelector('#locationInput');
-    var locationFilter = locationInput.value.toUpperCase();
-    var priceInput = document.querySelector('#priceInput');
-    var priceFilter = priceInput.value;
-
-    for (var mainI = 0; mainI < searchableData.length; mainI++) {
-        if (searchableData[mainI].locations.length > 1){
-            for (var i = 0; i < searchableData[mainI].locations.length; i++){
-                if(searchableData[mainI].locations[i].city.toUpperCase().includes(locationFilter)){
-                    firstFilter.push(searchableData[mainI]); 
-                } 
-            }   
-        } else if (searchableData[mainI].locations[0].city.toUpperCase().includes(locationFilter)){
-            firstFilter.push(searchableData[mainI]);
-        }
-    } 
-    for (var i = 0; i < firstFilter.length ; i++) {
-        if(firstFilter[i].price[0] <= priceFilter){
-            dataToRender.push(firstFilter[i]);
-        }
-    }
+    var firstFilter = this.locationFilter(searchableData);
+    var dataToRender = this.priceFilter(firstFilter);
     return dataToRender;
 }
 
+// Location + Lang
 Filter.prototype.locationLangFilter = function(searchableData){
-    var firstFilter = [];
-    var dataToRender = [];
-    var locationInput = document.querySelector('#locationInput');
-    var locationFilter = locationInput.value.toUpperCase();
-    var langInput = document.querySelector('#langInput');
-    var langFilter = langInput.value.toUpperCase();
-
-    for (var mainI = 0; mainI < searchableData.length; mainI++) {
-        if (searchableData[mainI].locations.length > 1){
-            for (var i = 0; i < searchableData[mainI].locations.length; i++){
-                if(searchableData[mainI].locations[i].city.toUpperCase().includes(locationFilter)){
-                    firstFilter.push(searchableData[mainI]); 
-                } 
-            }   
-        } else if (searchableData[mainI].locations[0].city.toUpperCase().includes(locationFilter)){
-            firstFilter.push(searchableData[mainI]);
-        }
-    }
-    for (var mainI = 0; mainI < firstFilter.length; mainI++) {
-        if (firstFilter[mainI].languages.length > 1){
-            for (var i = 0; i < firstFilter[mainI].languages.length; i++){
-                if(firstFilter[mainI].languages[i].toUpperCase().includes(langFilter)){
-                        dataToRender.push(firstFilter[mainI]); 
-                } 
-            }
-        } else if (firstFilter[mainI].languages.length > 0 && firstFilter[mainI].languages[0].toUpperCase().includes(langFilter)){
-            dataToRender.push(firstFilter[mainI]);
-        }
-    }
+    var firstFilter = this.locationFilter(searchableData);
+    var dataToRender = this.langFilter(firstFilter);
     return dataToRender; 
+}
+
+// Lang + Price
+Filter.prototype.langPriceFilter = function(searchableData){
+    var firstFilter = this.langFilter(searchableData);
+    var dataToRender = this.priceFilter(firstFilter);
+    return dataToRender; 
+}
+
+// Lang + Length
+Filter.prototype.langLengthFilter = function(searchableData){
+    var firstFilter = this.langFilter(searchableData);
+    var dataToRender = this.lengthFilter(firstFilter);
+    return dataToRender; 
+}
+
+// Length + Price
+Filter.prototype.lengthPriceFilter = function(searchableData){
+    var firstFilter = this.lengthFilter(searchableData);
+    var dataToRender = this.priceFilter(firstFilter);
+    return dataToRender; 
+}
 
 
+// By Three
+// Location - Lang 2, Price 2, Length 2
+// Lang - Location 2, Price 1, Length 1
+// Price - Location 2, Lang 1, Length 1
 
+// Location + Lang + Length
+Filter.prototype.locationLangLengthFilter = function(searchableData){
+    var firstFilter = this.locationFilter(searchableData);
+    var secondFilter = this.langFilter(firstFilter);
+    var dataToRender = this.lengthFilter(secondFilter);
+    return dataToRender; 
+}
+
+// Location + Lang + Price
+Filter.prototype.locationLangPriceFilter = function(searchableData){
+    var firstFilter = this.locationFilter(searchableData);
+    var secondFilter = this.langFilter(firstFilter);
+    var dataToRender = this.priceFilter(secondFilter);
+    return dataToRender; 
+}
+
+// Location + Length + Price
+Filter.prototype.locationLengthPriceFilter = function(searchableData){
+    var firstFilter = this.locationFilter(searchableData);
+    var secondFilter = this.lengthFilter(firstFilter);
+    var dataToRender = this.priceFilter(secondFilter);
+    return dataToRender; 
+}
+
+// Lang + Length + Price
+Filter.prototype.langLengthPriceFilter = function(searchableData){
+    var firstFilter = this.langFilter(searchableData);
+    var secondFilter = this.lengthFilter(firstFilter);
+    var dataToRender = this.priceFilter(secondFilter);
+    return dataToRender; 
+}
+
+// Location - Lang 2, Price 2, Length 2
+// Lang - Location 2, Price 2, Length 2
+// Price - Location 2, Lang 2, Length 2
+
+// All Filter
+// Location + Price + Lang + Length
+Filter.prototype.allFilter = function(searchableData){
+    var firstFilter = this.locationFilter(searchableData);
+    var secondFilter = this.priceFilter(firstFilter);
+    var thirdFilter = this.langFilter(secondFilter);
+    var dataToRender = this.lengthFilter(thirdFilter);
+    return dataToRender; 
 }
 
 
