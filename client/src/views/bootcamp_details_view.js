@@ -5,7 +5,7 @@ var BootcampDetailsView = function(detailsElement) {
   }
   
   BootcampDetailsView.prototype.render = function(bootcamp){
-    console.log(this);
+    // console.log(this);
     this.detailsElement.innerText = ""
     // while (this.detailsElement.hasChildNodes()) {
     //     this.detailsElement.removeChild(main.lastChild);
@@ -35,7 +35,7 @@ var BootcampDetailsView = function(detailsElement) {
             languagesString += bootcamp.languages[i];
         } else {
             languagesString += bootcamp.languages[i] + ", ";
-            console.log(languagesString);
+            // console.log(languagesString);
         }
     }
     langTag.innerText = languagesString;
