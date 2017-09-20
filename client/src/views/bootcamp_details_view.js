@@ -147,8 +147,6 @@ var BootcampDetailsView = function(detailsElement) {
     locationsCostString = "Cost of Living Per Week: "
     totalCostString = "Total Cost: "
 
-    //if there's only one location, don't do the location name in brackets for cost of living
-    //or total cost
     for(var i = 0; i < bootcamp.locations.length; i++){
         if(bootcamp.locations.length > 1){
             if(i === (bootcamp.locations.length - 1)){
