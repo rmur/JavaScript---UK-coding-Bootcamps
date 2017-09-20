@@ -162,7 +162,7 @@ Filter.prototype.lengthFilter = function(searchableData){
 // // All Filter
 // // Location + Price + Lang + Length
 Filter.prototype.allFilter = function(searchableData){
-    var firstFilter = this.locationFilter(searchableData);
+    var firstFilter = this.locationFilter(searchableData)
     var secondFilter = this.priceFilter(firstFilter);
     var thirdFilter = this.langFilter(secondFilter);
     var dataToRender = this.lengthFilter(thirdFilter);

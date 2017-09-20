@@ -1,5 +1,24 @@
 
 /*main major section*/
+nav {
+  display: flex;
+  background-color: white;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+nav img {
+  width: auto;
+  height: 100px;
+}
+
+nav h1 {
+  margin: 1em;
+}
+
+
+
 #allDetailsTag {
   background-color: white;
 }

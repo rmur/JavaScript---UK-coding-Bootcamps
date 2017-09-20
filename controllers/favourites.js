@@ -21,5 +21,14 @@ favouritesRouter.post("/", function(request,response){
     })
 })
 
+// Delete
+favouritesRouter.delete("/:id", function(request, response){
+    var idNum = parseInt(request.params.id);
+    db.collection("favourites").remove({ id: idNum}, function(error, results){
+        response.json(results);
+    });
+});
+
+
 
 module.exports = favouritesRouter;
