@@ -205,7 +205,7 @@ var BootcampDetailsView = function(detailsElement) {
                 locationsCostString += "£" + bootcamp.locations[i].costOfLiving;            
                 locationsCostString += " (" + bootcamp.locations[i].city + ")";
 
-                locationTotal =  bootcamp.locations[i].costOfLiving + bootcamp.price[0];
+                locationTotal =  (bootcamp.locations[i].costOfLiving * bootcamp.lengthWeeks ) + bootcamp.price[0];
                 totalCostString += "£" + locationTotal; 
                 totalCostString += " (" + bootcamp.locations[i].city + ")"
 
@@ -213,14 +213,14 @@ var BootcampDetailsView = function(detailsElement) {
                 locationsCostString += "£" + bootcamp.locations[i].costOfLiving;            
                 locationsCostString += " (" + bootcamp.locations[i].city + ")" + ", ";
 
-                locationTotal =  bootcamp.locations[i].costOfLiving + bootcamp.price[0];
+                locationTotal =  (bootcamp.locations[i].costOfLiving * bootcamp.lengthWeeks ) + bootcamp.price[0];
                 totalCostString += "£" + locationTotal;
                 totalCostString +=  " (" + bootcamp.locations[i].city + ")" + ", ";
             }
         } else {
             locationsCostString += "£" + bootcamp.locations[i].costOfLiving;            
 
-            locationTotal =  bootcamp.locations[i].costOfLiving + bootcamp.price[0];
+            locationTotal =  (bootcamp.locations[i].costOfLiving * bootcamp.lengthWeeks ) + bootcamp.price[0];
             totalCostString += "£" + locationTotal;
         }
     }
