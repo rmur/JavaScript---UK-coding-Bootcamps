@@ -17,6 +17,11 @@ nav h1 {
   margin: 1em;
 }
 
+#leftButton, #rightButton {
+  width: 50px;
+  font-weight: bold;
+  font-size: 25px;
+}
 
 
 #allDetailsTag {
