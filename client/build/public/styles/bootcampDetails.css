@@ -94,3 +94,23 @@ nav h1 {
   flex-flow: row wrap;
 
 }
+
+#favButton {
+  height: 70px;
+  width: 70px;
+  background-color: white;
+  color: red;
+  flex-wrap: wrap;
+  align-self: flex-end;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+/*#descriptiveBox, #locationsBox, #mapTag, #mapBox, #favButton {
+  border: 1px solid red;
+}
+
+#allDetailsTag, #addressWebBox{
+  border: 2px solid black;
+}*/

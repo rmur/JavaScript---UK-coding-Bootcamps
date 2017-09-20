@@ -1,4 +1,5 @@
 var MapWrapper = require('../models/map_wrapper.js');
+var AjaxRequest = require('../services/ajax_request.js');
 
 var BootcampDetailsView = function(detailsElement) {
     this.detailsElement = detailsElement;
@@ -29,6 +30,10 @@ var BootcampDetailsView = function(detailsElement) {
     var nameTag = document.createElement("h1");
     var leftButton = document.createElement("button");
     var rightButton = document.createElement("button");
+    
+    var favButton = document.createElement("button");
+    favButton.innerHTML = '<img src="../public/favourite.png">';
+    favButton.id = "favButton";
 
     logo.src = bootcamp.logo;
     nameTag.innerText = bootcamp.name;
@@ -129,6 +134,16 @@ var BootcampDetailsView = function(detailsElement) {
     var addressWebBox = document.createElement("section");
     addressWebBox.id = "addressWebBox";
     priceLengthBox.appendChild(priceTag);
+
+    favButton.addEventListener("click", function(){
+        var favouritesData = new AjaxRequest('http://localhost:3000/favourites');
+        favouritesData.post(bootcamp);
+    })
+
+    // allDetailsTag.appendChild(favButton);
+    addressWebBox.appendChild(favButton);
+
+
     priceLengthBox.appendChild(weeksTag);
     skillsBox.appendChild(langTag);
     skillsBox.appendChild(coreSkillsTag);
@@ -214,6 +229,8 @@ var BootcampDetailsView = function(detailsElement) {
     while (favouritesTag.hasChildNodes()) {
         favouritesTag.removeChild(favouritesTag.lastChild);
     }
+
+
 
     
     window.scrollTo(0, 0);
