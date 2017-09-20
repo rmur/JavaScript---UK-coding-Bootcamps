@@ -32,7 +32,10 @@ var BootcampDetailsView = function(detailsElement) {
     var rightButton = document.createElement("button");
 
     var favButton = document.createElement("button");
-    favButton.innerHTML = '<img src="../public/favourite.png">';
+    var favButtonImg = document.createElement("img");
+    favButtonImg.id = "favButtonImg";
+    favButtonImg.src = "../public/favourite.png";
+    // favButton.innerHTML = '<img src="../public/favourite.png">';
     favButton.id = "favButton";
 
     logo.src = bootcamp.logo;
@@ -143,7 +146,8 @@ var BootcampDetailsView = function(detailsElement) {
         favouritesData.post(bootcamp);
     })
 
-    // allDetailsTag.appendChild(favButton);
+    // favourite button
+    favButton.appendChild(favButtonImg);
     addressWebBox.appendChild(favButton);
 
 

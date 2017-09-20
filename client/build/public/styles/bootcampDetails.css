@@ -110,9 +110,16 @@ nav h1 {
   bottom: 0;
 }
 
-#favButton img {
+/*#favButton img {
+  margin: auto;
   height: 65px;
   width: 65px;
+}*/
+
+#favButtonImg{
+  /*margin: auto;*/
+  height: 50px;
+  width: 50px;
 }
 
 /*#descriptiveBox, #locationsBox, #mapTag, #mapBox, #favButton {
