@@ -17,7 +17,8 @@ var BootcampDetailsView = function(detailsElement) {
     var weeksTag = document.createElement("h2");
     var langTag = document.createElement("h3");
     var coreSkillsTag = document.createElement("h3");
-    var locationsTag = document.createElement("h4");
+    var locationsCostTag = document.createElement("p");
+    var totalCostTag = document.createElement("p");
     var tasterTag = document.createElement("p");
     var fundingTag = document.createElement("p");
     var descTag = document.createElement("p");
@@ -50,17 +51,6 @@ var BootcampDetailsView = function(detailsElement) {
         }
     }
     coreSkillsTag.innerText = coreSkillsString;
-
-
-    locationsString = "Locations: "
-    for(var i = 0; i < bootcamp.locations.length; i++){
-        if(i === (bootcamp.locations.length - 1)){
-            locationsString += bootcamp.locations[i].city;
-        } else {
-            locationsString += bootcamp.locations[i].city + ", ";
-        }
-    }
-    locationsTag.innerText = locationsString
 
     if (bootcamp.taster){
         tasterTag.innerText = "Taster Session Available"
@@ -154,6 +144,41 @@ var BootcampDetailsView = function(detailsElement) {
         descriptiveBox.appendChild(fundingTag);
     }
 
+    locationsCostString = "Cost of Living Per Week: "
+    totalCostString = "Total Cost: "
+
+    //if there's only one location, don't do the location name in brackets for cost of living
+    //or total cost
+    for(var i = 0; i < bootcamp.locations.length; i++){
+        if(bootcamp.locations.length > 1){
+            if(i === (bootcamp.locations.length - 1)){
+                locationsCostString += "£" + bootcamp.locations[i].costOfLiving;            
+                locationsCostString += " (" + bootcamp.locations[i].city + ")";
+
+                locationTotal =  bootcamp.locations[i].costOfLiving + bootcamp.price[0];
+                totalCostString += "£" + locationTotal; 
+                totalCostString += " (" + bootcamp.locations[i].city + ")"
+
+            } else {
+                locationsCostString += "£" + bootcamp.locations[i].costOfLiving;            
+                locationsCostString += " (" + bootcamp.locations[i].city + ")" + ", ";
+
+                locationTotal =  bootcamp.locations[i].costOfLiving + bootcamp.price[0];
+                totalCostString += "£" + locationTotal;
+                totalCostString +=  " (" + bootcamp.locations[i].city + ")" + ", ";
+            }
+        } else {
+            locationsCostString += "£" + bootcamp.locations[i].costOfLiving;            
+
+            locationTotal =  bootcamp.locations[i].costOfLiving + bootcamp.price[0];
+            totalCostString += "£" + locationTotal;
+        }
+    }
+    locationsCostTag.innerText = locationsCostString;
+    totalCostTag.innerText = totalCostString
+
+    descriptiveBox.appendChild(locationsCostTag);
+    descriptiveBox.appendChild(totalCostTag);
     descriptiveBox.appendChild(descTag);
     addressWebBox.appendChild(addressTag);
     addressWebBox.appendChild(websiteTag);
