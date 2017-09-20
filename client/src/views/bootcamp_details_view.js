@@ -5,7 +5,7 @@ var BootcampDetailsView = function(detailsElement) {
   }
   
   BootcampDetailsView.prototype.render = function(bootcamp){
-    console.log(this);
+    // console.log(this);
     this.detailsElement.innerText = ""
     // while (this.detailsElement.hasChildNodes()) {
     //     this.detailsElement.removeChild(main.lastChild);
@@ -19,9 +19,7 @@ var BootcampDetailsView = function(detailsElement) {
     var coreSkillsTag = document.createElement("h3");
     var locationsTag = document.createElement("h4");
     var tasterTag = document.createElement("p");
-    
     var fundingTag = document.createElement("p");
-
     var descTag = document.createElement("p");
     var addressTag = document.createElement("p");
     var websiteTag = document.createElement("a");
@@ -37,7 +35,7 @@ var BootcampDetailsView = function(detailsElement) {
             languagesString += bootcamp.languages[i];
         } else {
             languagesString += bootcamp.languages[i] + ", ";
-            console.log(languagesString);
+            // console.log(languagesString);
         }
     }
     langTag.innerText = languagesString;
@@ -90,16 +88,22 @@ var BootcampDetailsView = function(detailsElement) {
     websiteTag.innerText = "Website"
 
     var allDetailsTag = document.createElement("article");
+    allDetailsTag.id = "allDetailsTag";
     var priceLengthBox = document.createElement("section");
+    priceLengthBox.id = "priceLengthBox";
     var skillsBox = document.createElement("section");
+    skillsBox.id = "skillsBox";
     var otherSection = document.createElement("section");
-
+    otherSection.id = "otherSection";
     var descriptiveBox = document.createElement("section");
+    descriptiveBox.id = "descriptiveBox";
     var locationsBox = document.createElement("section");
+    locationsBox.id = "locationsBox";
 
     var mapBox = document.createElement("section");
+    mapBox.id = "mapBox";
     var mapTag = document.createElement("mark");
-    mapTag.id = "details-map";
+    mapTag.id = "mapTag";
 
     var coords = {
         lat: bootcamp.locations[0].lat,
@@ -118,6 +122,7 @@ var BootcampDetailsView = function(detailsElement) {
     mapBox.appendChild(mapTag);
     
     var addressWebBox = document.createElement("section");
+    addressWebBox.id = "addressWebBox";
     priceLengthBox.appendChild(priceTag);
     priceLengthBox.appendChild(weeksTag);
     skillsBox.appendChild(langTag);
@@ -132,7 +137,7 @@ var BootcampDetailsView = function(detailsElement) {
 
     if (bootcamp.depositAmount > 0){
         var depositTag = document.createElement("p");
-        depositTag.innerText = "Deposit: " + bootcamp.depositAmount;
+        depositTag.innerText = "Deposit: £" + bootcamp.depositAmount;
         descriptiveBox.appendChild(depositTag);
     }
 
@@ -152,13 +157,13 @@ var BootcampDetailsView = function(detailsElement) {
     descriptiveBox.appendChild(descTag);
     addressWebBox.appendChild(addressTag);
     addressWebBox.appendChild(websiteTag);
-    allDetailsTag.appendChild(priceLengthBox);
-    allDetailsTag.appendChild(skillsBox);
-    otherSection.appendChild(descriptiveBox);
     locationsBox.appendChild(mapBox);
     locationsBox.appendChild(addressWebBox);
-    locationsBox.appendChild(mapBox);
+    // locationsBox.appendChild(mapBox);
+    otherSection.appendChild(descriptiveBox);
     otherSection.appendChild(locationsBox);
+    allDetailsTag.appendChild(priceLengthBox);
+    allDetailsTag.appendChild(skillsBox);
     allDetailsTag.appendChild(otherSection);
     this.detailsElement.appendChild(allDetailsTag);
 

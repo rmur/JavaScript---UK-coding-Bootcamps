@@ -5,6 +5,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="public/styles.css">
     <link rel="stylesheet" type="text/css" href="public/modal.css">
+    <link rel="stylesheet" type="text/css" href="public/bootcampDetails.css">
     <title>Which Kodeskhool?</title>
     <script src="https://maps.googleapis.com/maps/api/js"></script> 
     <script src="bundle.js"></script>
@@ -16,9 +17,15 @@
     <header>
       <img src="https://www.codeschool.com/assets/meta/og-avatar-541739b5880b8586eeb033747a8a2cf3e689860d59b506d29a9633aed86d057d.png" alt="The Kodeskhool logo" id="logo">
       <p>Search the UK for Code Bootcamps</p>
+
+      <section id="search_bar">
+      <input type="text" id="locationInput" placeholder="Location">    
+      <input type="number" id="priceInput" placeholder="Price"> 
+      <input type="text" id="langInput" placeholder="Languages"> 
+      <input type="number" id="lengthInput" placeholder="Length in weeks">
+      <button id="filter">Filter</button>
+      </section>
     </header>
-    <input type="text" id="locationInput" placeholder="Location">    
-    <input type="number" id="priceInput" placeholder="Price"> 
     <main id="all-bootcamps">
 
     </main>

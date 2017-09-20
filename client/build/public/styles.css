@@ -454,8 +454,8 @@ body {
 
 #logo {
   margin: 5px;
-  max-height: 150px;
-  max-width: 150px;
+  max-height: 100px;
+  max-width: 100px;
   height: auto;
 }
 
@@ -469,9 +469,13 @@ img {
 }
 
 header {
-display: flex;
-flex-flow: row wrap;
-background-color: white;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  background-color: white;
+  position: fixed;
+  /* z-index: 1; */
+  top: 0;
 }
 
 header p {
@@ -482,22 +486,31 @@ header img {
   align-self: center;
 }
 
+#search_bar {
+  align-self: flex-end;
+  /* left: 5%; */
+}
+
 #all-bootcamps {
 display: flex;
 justify-content: center;
 flex-flow: row wrap;
+margin-top: 140px;
+/* position: absolute; */
+/* top: 40%; */
+
 }
 
 #all-bootcamps article {
   flex: 1;
-  /* height: 100%; */
+   height: 100%; 
   margin: 10px;
   padding: 10px;
   border: 10px;
   width: 300px;
   background-color: white;
   text-align: center;
-  /* align-self: center; */
+  align-self: center; 
   flex-basis: auto;
 }
 
