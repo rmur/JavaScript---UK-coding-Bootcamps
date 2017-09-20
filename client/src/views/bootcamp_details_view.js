@@ -152,7 +152,6 @@ var BootcampDetailsView = function(detailsElement) {
     locationsCostTag.innerText = locationsCostString;
     totalCostTag.innerText = totalCostString
 
-    
     descriptiveBox.appendChild(locationsCostTag);
     descriptiveBox.appendChild(totalCostTag);
     descriptiveBox.appendChild(descTag);
