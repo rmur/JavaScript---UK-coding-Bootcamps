@@ -30,7 +30,7 @@ var BootcampDetailsView = function(detailsElement) {
     var nameTag = document.createElement("h1");
     var leftButton = document.createElement("button");
     var rightButton = document.createElement("button");
-    
+
     var favButton = document.createElement("button");
     favButton.innerHTML = '<img src="../public/favourite.png">';
     favButton.id = "favButton";
@@ -40,6 +40,9 @@ var BootcampDetailsView = function(detailsElement) {
     leftButton.innerText = "<"
     rightButton.innerText = ">"
 
+    leftButton.addEventListener("click", function(){
+        var main = document.querySelector("#all-bootcamps")
+    });
 
     navBox.appendChild(leftButton);
     navBox.appendChild(logo);

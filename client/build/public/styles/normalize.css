@@ -444,4 +444,9 @@ template {
 [hidden] {
   display: none;
 }
-/* MAIN CSS START *
+
+img {
+  width: auto;
+  height: 100px;
+}
+

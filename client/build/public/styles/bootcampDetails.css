@@ -51,20 +51,8 @@ nav h1 {
 
 }
 
-#skillsBox h3{
-
-}
-#skillsBox p{
-
-}
-
 
 /*major section*/
-#otherSection{
-
-
-}
-
 
 #descriptiveBox {
   display: flex;
@@ -112,6 +100,7 @@ nav h1 {
 #favButton {
   height: 70px;
   width: 70px;
+  margin: 10px;
   background-color: white;
   color: red;
   flex-wrap: wrap;
@@ -119,6 +108,11 @@ nav h1 {
   position: fixed;
   right: 0;
   bottom: 0;
+}
+
+#favButton img {
+  height: 65px;
+  width: 65px;
 }
 
 /*#descriptiveBox, #locationsBox, #mapTag, #mapBox, #favButton {
