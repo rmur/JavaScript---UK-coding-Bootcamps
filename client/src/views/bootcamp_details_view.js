@@ -15,7 +15,7 @@ var BootcampDetailsView = function(detailsElement) {
     var weeksTag = document.createElement("h2");
     var langTag = document.createElement("h3");
     var coreSkillsTag = document.createElement("h3");
-    var locationsTag = document.createElement("h4");
+    var locationsTag = document.createElement("p");
     var tasterTag = document.createElement("p");
     
     var fundingTag = document.createElement("p");
@@ -129,6 +129,19 @@ var BootcampDetailsView = function(detailsElement) {
         descriptiveBox.appendChild(fundingTag);
     }
 
+    locationsString = "Cost of Living: "
+    for(var i = 0; i < bootcamp.locations.length; i++){
+        if(i === (bootcamp.locations.length - 1)){
+            locationsString += "£" + bootcamp.locations[i].costOfLiving;            
+            locationsString += " (" + bootcamp.locations[i].city + ")";
+        } else {
+            locationsString += "£" + bootcamp.locations[i].costOfLiving;            
+            locationsString += " (" + bootcamp.locations[i].city + ")" + ", ";
+        }
+    }
+    locationsTag.innerText = locationsString
+
+    descriptiveBox.appendChild(locationsTag);
     descriptiveBox.appendChild(descTag);
     addressWebBox.appendChild(addressTag);
     addressWebBox.appendChild(websiteTag);

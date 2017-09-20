@@ -68,8 +68,8 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var AllBootcampsView = __webpack_require__(1);
-var BootcampDetailsView = __webpack_require__(3);
-var AjaxRequest = __webpack_require__(2);
+var BootcampDetailsView = __webpack_require__(2);
+var AjaxRequest = __webpack_require__(3);
 
 var app = function(){
      
@@ -140,64 +140,6 @@ module.exports = AllBootcampsView;
 /* 2 */
 /***/ (function(module, exports) {
 
-var AjaxRequest= function(url) {
-    this.url = url;
-    this.onUpdate = null;
-  }
-  
-  AjaxRequest.prototype.get = function(callback) {
-    var request = new XMLHttpRequest();
-    request.open("GET", this.url);
-    request.onload = function(){
-      if(request.status === 200){
-        var jsonString = request.responseText;
-        var bootcamps = JSON.parse(jsonString);
-        if (bootcamps[0] && !bootcamps[0].id) {
-          for (var i = 0 ; i < bootcamps.length; i++) {
-            bootcamps[i].id = i;
-          }
-       }
-       this.data = bootcamps;
-      callback(bootcamps);
-      }
-    }.bind(this);
-    request.send();
-  }
-  
-  AjaxRequest.prototype.post = function(callback, data) {
-  
-    var request = new XMLHttpRequest();
-    request.open("POST", this.url);
-    request.setRequestHeader("Content-Type", "application/json");
-    request.onload = function(){
-      if(request.status === 200){
-        var jsonString = request.responseText;
-        callback(JSON.parse(jsonString));
-      }
-    }.bind(this);
-    request.send(JSON.stringify(data));
-  }
-  
-  AjaxRequest.prototype.delete = function(index) {
-  
-    var request = new XMLHttpRequest();
-    request.open("DELETE", this.url + "/" + index);
-    request.setRequestHeader("Content-Type", "application/json");
-    request.onload = function(){
-      if(request.status === 200){
-        var jsonString = request.responseText;
-        this.characters = JSON.parse(jsonString);
-      }
-    }.bind(this);
-    request.send();
-  }
-  
-  module.exports = AjaxRequest;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
 var BootcampDetailsView = function(detailsElement) {
     this.detailsElement = detailsElement;
   }
@@ -215,7 +157,7 @@ var BootcampDetailsView = function(detailsElement) {
     var weeksTag = document.createElement("h2");
     var langTag = document.createElement("h3");
     var coreSkillsTag = document.createElement("h3");
-    var locationsTag = document.createElement("h4");
+    var locationsTag = document.createElement("p");
     var tasterTag = document.createElement("p");
     
     var fundingTag = document.createElement("p");
@@ -329,6 +271,19 @@ var BootcampDetailsView = function(detailsElement) {
         descriptiveBox.appendChild(fundingTag);
     }
 
+    locationsString = "Cost of Living: "
+    for(var i = 0; i < bootcamp.locations.length; i++){
+        if(i === (bootcamp.locations.length - 1)){
+            locationsString += "£" + bootcamp.locations[i].costOfLiving;            
+            locationsString += " (" + bootcamp.locations[i].city + ")";
+        } else {
+            locationsString += "£" + bootcamp.locations[i].costOfLiving;            
+            locationsString += " (" + bootcamp.locations[i].city + ")" + ", ";
+        }
+    }
+    locationsTag.innerText = locationsString
+
+    descriptiveBox.appendChild(locationsTag);
     descriptiveBox.appendChild(descTag);
     addressWebBox.appendChild(addressTag);
     addressWebBox.appendChild(websiteTag);
@@ -352,6 +307,64 @@ var BootcampDetailsView = function(detailsElement) {
   }
 
   module.exports = BootcampDetailsView;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+var AjaxRequest= function(url) {
+    this.url = url;
+    this.onUpdate = null;
+  }
+  
+  AjaxRequest.prototype.get = function(callback) {
+    var request = new XMLHttpRequest();
+    request.open("GET", this.url);
+    request.onload = function(){
+      if(request.status === 200){
+        var jsonString = request.responseText;
+        var bootcamps = JSON.parse(jsonString);
+        if (bootcamps[0] && !bootcamps[0].id) {
+          for (var i = 0 ; i < bootcamps.length; i++) {
+            bootcamps[i].id = i;
+          }
+       }
+       this.data = bootcamps;
+      callback(bootcamps);
+      }
+    }.bind(this);
+    request.send();
+  }
+  
+  AjaxRequest.prototype.post = function(callback, data) {
+  
+    var request = new XMLHttpRequest();
+    request.open("POST", this.url);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.onload = function(){
+      if(request.status === 200){
+        var jsonString = request.responseText;
+        callback(JSON.parse(jsonString));
+      }
+    }.bind(this);
+    request.send(JSON.stringify(data));
+  }
+  
+  AjaxRequest.prototype.delete = function(index) {
+  
+    var request = new XMLHttpRequest();
+    request.open("DELETE", this.url + "/" + index);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.onload = function(){
+      if(request.status === 200){
+        var jsonString = request.responseText;
+        this.characters = JSON.parse(jsonString);
+      }
+    }.bind(this);
+    request.send();
+  }
+  
+  module.exports = AjaxRequest;
 
 /***/ })
 /******/ ]);
