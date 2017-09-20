@@ -21,7 +21,18 @@ Filter.prototype.locationFilter = function(searchableData){
             dataToRender.push(searchableData[mainI]);
         }
     }   
-    return dataToRender;
+    
+    var dataToRender2 = []
+    console.log(dataToRender[0].name);
+    for (var i = 0; i < dataToRender.length; i++){
+        // Check if the next item in the array is the same as this one.
+        // If it's not we add it to the array we are going to return
+        // We also check that we're not at the end of the array
+        if(( i !== dataToRender.length -1) && dataToRender[i].name !== dataToRender[i + 1].name ){
+            dataToRender2.push(dataToRender[i])
+        }
+    }
+    return dataToRender2;
 }
     
 Filter.prototype.priceFilter = function(searchableData){
@@ -162,7 +173,7 @@ Filter.prototype.lengthFilter = function(searchableData){
 // // All Filter
 // // Location + Price + Lang + Length
 Filter.prototype.allFilter = function(searchableData){
-    var firstFilter = this.locationFilter(searchableData);
+    var firstFilter = this.locationFilter(searchableData)
     var secondFilter = this.priceFilter(firstFilter);
     var thirdFilter = this.langFilter(secondFilter);
     var dataToRender = this.lengthFilter(thirdFilter);
