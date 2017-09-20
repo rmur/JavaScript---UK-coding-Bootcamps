@@ -3,8 +3,8 @@ var WelcomePopUpWindow = function(main){
 }
 
 WelcomePopUpWindow.prototype.render = function(){
-  var headerText = "This is header!"
-  this.text = "This is my text in Pop-up Box \n And this is the next line";
+  var headerText = "Welcome to the most comprehensive UK coding bootcamps database!"
+  this.text = "Here you can find the latest available information about every coding bootcamp existing in the UK including filtering bootcamps by specific requirement such as: Location, Price, Programming languages.";
 
   var popUp = document.getElementById('pop-up');
 
@@ -12,6 +12,7 @@ WelcomePopUpWindow.prototype.render = function(){
   popUpContent.id = "popUpWindow";
 
   var header = document.createElement('h1');
+  header.id = "popUpHeader";
   header.innerText= headerText;
 
   var image = document.createElement('img');
@@ -19,7 +20,7 @@ WelcomePopUpWindow.prototype.render = function(){
   image.src = "http://art.fritsahlefeldt.com/assets/cache/idMjcyMWU4OTBkYjU1ZmY=-1ee547777c05df3effc27124f61347be.jpg";
 
   var closeButton = document.createElement('button');
-  closeButton.id = "close";
+  closeButton.id = "okButton";
   closeButton.innerText = "OK";
   closeButton.onclick = function(){
     popUp.style.display = "none"
