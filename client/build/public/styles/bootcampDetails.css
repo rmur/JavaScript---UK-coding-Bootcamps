@@ -25,6 +25,7 @@ nav h1 {
 }
 
 #priceLengthBox {
+  background-color: #eaeaea;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
@@ -64,6 +65,7 @@ nav h1 {
 
 
 #locationsBox {
+  background-color: #eaeaea;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
@@ -73,16 +75,17 @@ nav h1 {
   margin: auto;
   height:500px;
   width:500px;
+  padding: 10px;
 }
 
 #mapBox {
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
-  height:500px;
-  width:500px;
+/*  height:500px;
+  width:500px;*/
   margin: auto;
-  overflow:hidden
+  padding: 10px;
 
 }
 
