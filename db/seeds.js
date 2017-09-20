@@ -4,7 +4,7 @@ db.dropDatabase();
 db.favourites.insert({
   name: "CodeClan",
   website: "https://codeclan.com/",
-  logo: "https://i2.wp.com/codeclan.com/wp-content/uploads/2016/05/CodeClan-Horizontal-RGB.png?fit=869%2C320&ssl=1",
+  logo: "https://codeclan.com/wp-content/uploads/2016/03/favicon.png",
   locations: [
     {
       city: "Edinburgh", 
@@ -44,7 +44,7 @@ db.bootcamps.insert(
   {
     name: "CodeClan",
     website: "https://codeclan.com/",
-    logo: "https://i2.wp.com/codeclan.com/wp-content/uploads/2016/05/CodeClan-Horizontal-RGB.png?fit=869%2C320&ssl=1",
+    logo: "https://codeclan.com/wp-content/uploads/2016/03/favicon.png",
     locations: [
       {
         city: "Edinburgh", 
@@ -81,7 +81,7 @@ db.bootcamps.insert(
   {
     name: "Code Bootcamp",
     website: "http://www.codebootcamp.co.uk/",
-    logo: "http://www.codebootcamp.co.uk/images/code-lab-block-logo.png",
+    logo: "https://i.imgur.com/dr36DaQ.png",
     locations: [
       {
         city: "Belfast", 
@@ -111,7 +111,7 @@ db.bootcamps.insert(
   {
     name: "DevelopMe",
     website: "https://developme.training/",
-    logo: "https://developme.training/wp-content/themes/developme-oct-2015/images/developme_logo.svg?x57272",
+    logo: "https://i.imgur.com/0efhv6K.png",
     locations: [
       {
         city: "Bristol", 
@@ -208,7 +208,7 @@ db.bootcamps.insert(
   {
     name: "Founders and Coders",
     website: "https://foundersandcoders.com",
-    logo: "https://media.licdn.com/media/p/8/005/0a3/300/0f370ec.png",
+    logo: "https://i.imgur.com/YT85WyQ.png",
     locations: [
       {
         city: "London",
@@ -238,7 +238,7 @@ db.bootcamps.insert(
   {
     name: "We Got Coders",
     website: "https://www.wegotcoders.com/",
-    logo: "https://www.wegotcoders.com/assets/logos/home_logo-7887ab7b59843a27ba312e13f4d6567b807345a6feeb8f40b81b2a9a44b33046.png",
+    logo: "https://i.imgur.com/Sh7dkZ2.png",
     locations: [
       {
         city: "Hertfordshire",
@@ -365,7 +365,7 @@ db.bootcamps.insert(
   {
     name: "Codez Academy",
     website: "http://www.codezacademy.co.uk/",
-    logo: "http://www.codezacademy.co.uk/assets/img/logo/logo.png",
+    logo: "https://pbs.twimg.com/profile_images/732258658948644864/6bnmnau7.jpg",
     locations: [
       {
         city: "Caerphilly", 
@@ -425,7 +425,7 @@ db.bootcamps.insert(
   {
     name: "General Assembly",
     website: "https://generalassemb.ly/locations/london",
-    logo: "http://static-assets.generalassemb.ly/logos/generalassembly-open-graph.png",
+    logo: "https://i.imgur.com/iDdPuSU.png",
     locations: [
       {
         city: "London", 
@@ -485,7 +485,7 @@ db.bootcamps.insert(
   {
     name: "Just It",
     website: "https://www.justit.co.uk/",
-    logo: "https://www.justit.co.uk/wp-content/uploads/2016/02/Just-it-15th-anniversary-logo-230.png",
+    logo: "https://pbs.twimg.com/profile_images/600936551061807104/_po7UVKm.png",
     locations: [
       {
         city: "London", 

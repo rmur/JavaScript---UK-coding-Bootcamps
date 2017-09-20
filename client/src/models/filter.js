@@ -21,7 +21,18 @@ Filter.prototype.locationFilter = function(searchableData){
             dataToRender.push(searchableData[mainI]);
         }
     }   
-    return dataToRender;
+    
+    var dataToRender2 = []
+    console.log(dataToRender[0].name);
+    for (var i = 0; i < dataToRender.length; i++){
+        // Check if the next item in the array is the same as this one.
+        // If it's not we add it to the array we are going to return
+        // We also check that we're not at the end of the array
+        if(( i !== dataToRender.length -1) && dataToRender[i].name !== dataToRender[i + 1].name ){
+            dataToRender2.push(dataToRender[i])
+        }
+    }
+    return dataToRender2;
 }
     
 Filter.prototype.priceFilter = function(searchableData){
