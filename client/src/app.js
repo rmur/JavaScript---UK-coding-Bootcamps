@@ -25,8 +25,10 @@ var app = function(){
 
     var allBootcampsView = new AllBootcampsView(main);
     bootcampsData.get(allBootcampsView.render.bind(allBootcampsView));
+    
 
     allBootcampsView.main.addEventListener("click", function(event){
+        // bootcampDetailsView.data = (bootcampsData.data);
         var chosenCamp = bootcampsData.data[event.path[1].id]
         bootcampDetailsView.render(chosenCamp);
         favouritesView.render(favouritesData.data);
@@ -35,49 +37,51 @@ var app = function(){
     var locationInput = document.querySelector("#locationInput");
     locationInput.addEventListener("keyup", function(){
         var dataToRender = filter.locationFilter(bootcampsData.data);
-        allBootcampsView.render(dataToRender);
+        bootcampDetailsView.data = dataToRender;
+        console.log(bootcampDetailsView.data)
+        allBootcampsView.render(dataToRender)
     })
 
     var priceInput = document.querySelector("#priceInput");
     priceInput.addEventListener("input", function(){
         var dataToRender = filter.priceFilter(bootcampsData.data);
+        bootcampDetailsView.data = dataToRender;
         allBootcampsView.render(dataToRender);
     })
 
     var lengthInput = document.querySelector("#lengthInput");
     lengthInput.addEventListener("input", function(){
         var dataToRender = filter.lengthFilter(bootcampsData.data);
+        bootcampDetailsView.data = dataToRender;
         allBootcampsView.render(dataToRender);
     })
 
     var langInput = document.querySelector("#langInput");
     langInput.addEventListener("keyup", function(){
-        var dataToRender =filter.langFilter(bootcampsData.data);
+        var dataToRender = filter.langFilter(bootcampsData.data);
+        bootcampDetailsView.data = dataToRender;
         allBootcampsView.render(dataToRender);
     })
 
     var filterButton = document.querySelector("#filter");
     filterButton.addEventListener("click", function(){
-        // var dataToRender =  filter.locationLengthFilter(bootcampsData.data);
-        // var dataToRender =  filter.locationPriceFilter(bootcampsData.data);
-        // var dataToRender =  filter.locationLangFilter(bootcampsData.data);
         var dataToRender =  filter.allFilter(bootcampsData.data);
-        allBootcampsView.render(dataToRender);
+        bootcampDetailsView.data = dataToRender;
+        allBootcampsView.render(dataToRender);    
     })
 
 
     var logo = document.querySelector("#logo");
     logo.addEventListener("click", function(){
         allBootcampsView.render(bootcampsData.data);
+        bootcampDetailsView.data = bootcampsData.data;
         favouritesView.render(favouritesData.data);
     })
 
     favouritesView.main.addEventListener("click", function(event){
         var chosenCamp = favouritesData.data[event.path[1].id]
-        // console.log(chosenCamp);
-        // console.log(event.path[1].id);
         bootcampDetailsView.render(chosenCamp);
-
+        
     });
 
 };
