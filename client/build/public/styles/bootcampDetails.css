@@ -21,6 +21,7 @@ nav h1 {
 
 #allDetailsTag {
   background-color: white;
+  margin: 10px;
 }
 
 #priceLengthBox {
@@ -29,9 +30,19 @@ nav h1 {
   flex-flow: row wrap;
 }
 
-#priceLengthBox h2{
-  margin: auto;
+#allDetailsTag h2{
+  margin: 10px;
 }
+
+#allDetailsTag h3{
+  margin: 10px;
+}
+
+
+#allDetailsTag p{
+  margin: 10px;
+}
+
 
 #skillsBox {
   display: flex;
@@ -71,9 +82,7 @@ nav h1 {
 }
 
 #mapTag {
-/*  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;*/
+  margin: auto;
   height:500px;
   width:500px;
 }
@@ -85,13 +94,18 @@ nav h1 {
   height:500px;
   width:500px;
   margin: auto;
+  overflow:hidden
 
 }
 
 #addressWebBox {
   display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
+  justify-content: top;
+  flex-flow: column wrap;
+  text-align: center;
+  float:right;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 
