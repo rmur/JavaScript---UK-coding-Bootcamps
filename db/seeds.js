@@ -10,13 +10,15 @@ db.favourites.insert({
       city: "Edinburgh", 
       lat: 55.9470, 
       lng: -3.2020, 
-      address: "37 Castle Terrace, Edinburgh, EH1 2EL"
+      address: "37 Castle Terrace, Edinburgh, EH1 2EL",
+      costOfLiving: 330      
     }, 
     {
       city: "Glasgow", 
       lat: 55.857044, 
       lng: -4.244319, 
-      address: "Tontine, 20 Trongate G1 5NA"
+      address: "Tontine, 20 Trongate G1 5NA",
+      costOfLiving: 238      
     }
     ],
   twitter: "https://twitter.com/CodeClanScot",
