@@ -1,0 +1,59 @@
+
+/*main major section*/
+#allDetailsTag {
+
+}
+
+#priceLengthBox {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+#skillsBox {
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+
+}
+
+
+/*major section*/
+#otherSection{
+
+
+}
+
+
+#descriptiveBox {
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+
+}
+
+
+
+#locationsBox {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+#mapTag {
+
+}
+
+#mapBox {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+
+}
+
+#addressWebBox {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+
+}

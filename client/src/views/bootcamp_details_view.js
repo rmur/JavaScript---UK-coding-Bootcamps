@@ -12,31 +12,14 @@ var BootcampDetailsView = function(detailsElement) {
     // }
 
     var logo = document.createElement("img");
-    // logo.id = "logo";
-
     var nameTag = document.createElement("h1");
-    // nameTag.id = "nameTag";
-
     var priceTag = document.createElement("h2");
-    // priceTag.id = "priceTag";
-
     var weeksTag = document.createElement("h2");
-    // weeksTag.id = "weeksTag";
-
     var langTag = document.createElement("h3");
-    // langTag.id ="langTag";
-
     var coreSkillsTag = document.createElement("h3");
-    // coreSkills.id = "coreSkills";
-
     var locationsTag = document.createElement("h4");
-    // locationsTag.id = "locationsTag";
-
     var tasterTag = document.createElement("p");
-    // tasterTag.id ="tasterTag";
-    
     var fundingTag = document.createElement("p");
-
     var descTag = document.createElement("p");
     var addressTag = document.createElement("p");
     var websiteTag = document.createElement("a");
@@ -105,19 +88,22 @@ var BootcampDetailsView = function(detailsElement) {
     websiteTag.innerText = "Website"
 
     var allDetailsTag = document.createElement("article");
-
+    allDetailsTag.id = "allDetailsTag";
     var priceLengthBox = document.createElement("section");
+    priceLengthBox.id = "priceLengthBox";
     var skillsBox = document.createElement("section");
+    skillsBox.id = "skillsBox";
     var otherSection = document.createElement("section");
-
+    otherSection.id = "otherSection";
     var descriptiveBox = document.createElement("section");
     descriptiveBox.id = "descriptiveBox";
     var locationsBox = document.createElement("section");
     locationsBox.id = "locationsBox";
 
     var mapBox = document.createElement("section");
+    mapBox.id = "mapBox";
     var mapTag = document.createElement("mark");
-    mapTag.id = "details-map";
+    mapTag.id = "mapTag";
 
     var coords = {
         lat: bootcamp.locations[0].lat,
@@ -136,6 +122,7 @@ var BootcampDetailsView = function(detailsElement) {
     mapBox.appendChild(mapTag);
     
     var addressWebBox = document.createElement("section");
+    addressWebBox.id = "addressWebBox";
     priceLengthBox.appendChild(priceTag);
     priceLengthBox.appendChild(weeksTag);
     skillsBox.appendChild(langTag);
@@ -170,13 +157,13 @@ var BootcampDetailsView = function(detailsElement) {
     descriptiveBox.appendChild(descTag);
     addressWebBox.appendChild(addressTag);
     addressWebBox.appendChild(websiteTag);
-    allDetailsTag.appendChild(priceLengthBox);
-    allDetailsTag.appendChild(skillsBox);
-    otherSection.appendChild(descriptiveBox);
     locationsBox.appendChild(mapBox);
     locationsBox.appendChild(addressWebBox);
-    locationsBox.appendChild(mapBox);
+    // locationsBox.appendChild(mapBox);
+    otherSection.appendChild(descriptiveBox);
     otherSection.appendChild(locationsBox);
+    allDetailsTag.appendChild(priceLengthBox);
+    allDetailsTag.appendChild(skillsBox);
     allDetailsTag.appendChild(otherSection);
     this.detailsElement.appendChild(allDetailsTag);
 
