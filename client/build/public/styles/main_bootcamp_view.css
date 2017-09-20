@@ -1,0 +1,27 @@
+#logo {
+  margin: 5px;
+  max-height: 150px;
+  max-width: 150px;
+  height: auto;
+}
+
+#all-bootcamps {
+display: flex;
+justify-content: center;
+flex-flow: row wrap;
+}
+
+#all-bootcamps article {
+  flex: 1;
+  /* height: 100%; */
+  margin: 10px;
+  padding: 10px;
+  border: 10px;
+  width: 300px;
+  background-color: white;
+  text-align: center;
+  /* align-self: center; */
+  flex-basis: auto;
+}
+
+

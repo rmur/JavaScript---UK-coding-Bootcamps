@@ -445,6 +445,7 @@ template {
   display: none;
 }
 /* MAIN CSS START */
+<<<<<<< HEAD:client/build/public/styles.css
 
 
 body {
@@ -529,3 +530,4 @@ margin-top: 8.5em;
   align-self: center;
   flex-basis: auto;
 }
+
