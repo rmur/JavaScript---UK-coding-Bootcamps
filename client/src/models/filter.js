@@ -28,8 +28,10 @@ Filter.prototype.locationFilter = function(searchableData){
         // Check if the next item in the array is the same as this one.
         // If it's not we add it to the array we are going to return
         // We also check that we're not at the end of the array
-        if(( i !== dataToRender.length -1) && dataToRender[i].name !== dataToRender[i + 1].name ){
+        if((dataToRender.length > 1) && ( i !== dataToRender.length -1) && dataToRender[i].name !== dataToRender[i + 1].name ){
             dataToRender2.push(dataToRender[i])
+        } else if (dataToRender.length === 1) {
+            dataToRender2.push(dataToRender[0]);
         }
     }
     return dataToRender2;
