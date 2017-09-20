@@ -25,7 +25,7 @@ var app = function(){
 
     var allBootcampsView = new AllBootcampsView(main);
     bootcampsData.get(allBootcampsView.render.bind(allBootcampsView));
-    
+        
 
     allBootcampsView.main.addEventListener("click", function(event){
         // bootcampDetailsView.data = (bootcampsData.data);
@@ -38,7 +38,7 @@ var app = function(){
     locationInput.addEventListener("keyup", function(){
         var dataToRender = filter.locationFilter(bootcampsData.data);
         bootcampDetailsView.data = dataToRender;
-        console.log(bootcampDetailsView.data)
+        // console.log(bootcampDetailsView.data)
         allBootcampsView.render(dataToRender)
     })
 
@@ -83,6 +83,11 @@ var app = function(){
         bootcampDetailsView.render(chosenCamp);
         
     });
+
+       setTimeout(function(){
+        console.log(bootcampsData.data);
+        bootcampDetailsView.data = bootcampsData.data;
+    }, 1000).bind(this);
 
 };
 
