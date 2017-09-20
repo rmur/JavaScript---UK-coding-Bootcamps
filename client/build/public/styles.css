@@ -403,7 +403,6 @@ textarea {
  * 1. Add the correct display in Edge, IE, and Firefox.
  */
 
-details, /* 1 */
 menu {
   display: block;
 }
@@ -454,15 +453,29 @@ body {
   }
 
 #logo {
-  max-height: 150px;
-  max-width: 150px;
+  margin: 5px;
+  max-height: 100px;
+  max-width: 100px;
+  height: auto;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+  object-fit: cover;
+  width:-webkit-fill-available; 
   height: auto;
 }
 
 header {
-display: flex;
-flex-flow: row wrap;
-background-color: white;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  background-color: white;
+  position: fixed;
+  z-index: 1;
+  top: 0;
 }
 
 header p {
@@ -473,18 +486,46 @@ header img {
   align-self: center;
 }
 
+#search_bar {
+  align-self: flex-end;
+}
+
 #all-bootcamps {
 display: flex;
 justify-content: center;
 flex-flow: row wrap;
+margin-top: 8.5em;
 }
 
-article {
+#all-bootcamps article {
   flex: 1;
+   height: 100%; 
   margin: 10px;
   padding: 10px;
   border: 10px;
+  width: 300px;
   background-color: white;
   text-align: center;
-  
+  align-self: center; 
+  flex-basis: auto;
+}
+
+#favourites {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  background-color: lightblue;
+}
+
+#favourites article {
+  flex: 1;
+  height: 100%;
+  margin: 10px;
+  padding: 10px;
+  border: 10px;
+  width: 300px;
+  background-color: white;
+  text-align: center;
+  align-self: center;
+  flex-basis: auto;
 }

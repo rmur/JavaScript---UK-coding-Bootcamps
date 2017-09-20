@@ -1,0 +1,77 @@
+
+/*main major section*/
+#allDetailsTag {
+  background-color: white;
+}
+
+#priceLengthBox {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+#priceLengthBox h2{
+  margin: auto;
+}
+
+#skillsBox {
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+
+}
+
+#skillsBox h3{
+
+}
+#skillsBox p{
+
+}
+
+
+/*major section*/
+#otherSection{
+
+
+}
+
+
+#descriptiveBox {
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+
+}
+
+
+
+#locationsBox {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+#mapTag {
+/*  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;*/
+  height:500px;
+  width:500px;
+}
+
+#mapBox {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  height:500px;
+  width:500px;
+  margin: auto;
+
+}
+
+#addressWebBox {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+
+}
