@@ -12,8 +12,7 @@ var BootcampDetailsView = function(detailsElement) {
     //     this.detailsElement.removeChild(main.lastChild);
     // }
 
-    var logo = document.createElement("img");
-    var nameTag = document.createElement("h1");
+
     var priceTag = document.createElement("h2");
     var weeksTag = document.createElement("h2");
     var langTag = document.createElement("h3");
@@ -26,12 +25,31 @@ var BootcampDetailsView = function(detailsElement) {
     var addressTag = document.createElement("p");
     var websiteTag = document.createElement("a");
 
+    var navBox = document.createElement("nav");
+    var logo = document.createElement("img");
+    var nameTag = document.createElement("h1");
+    var leftButton = document.createElement("button");
+    var rightButton = document.createElement("button");
+
     var favButton = document.createElement("button");
     favButton.innerHTML = '<img src="../public/favourite.png">';
     favButton.id = "favButton";
 
     logo.src = bootcamp.logo;
     nameTag.innerText = bootcamp.name;
+    leftButton.innerText = "<"
+    rightButton.innerText = ">"
+
+    leftButton.addEventListener("click", function(){
+        var main = document.querySelector("#all-bootcamps")
+    });
+
+    navBox.appendChild(leftButton);
+    navBox.appendChild(logo);
+    navBox.appendChild(nameTag);
+    navBox.appendChild(rightButton);
+    this.detailsElement.appendChild(navBox)
+
     priceTag.innerText = "Price: £" + bootcamp.price[0];
     weeksTag.innerText = "Length in Weeks: " + bootcamp.lengthWeeks;
 
@@ -105,7 +123,7 @@ var BootcampDetailsView = function(detailsElement) {
         lng: bootcamp.locations[0].lng
     }
 
-    var map = new MapWrapper(mapTag, coords, 5);
+    var map = new MapWrapper(mapTag, coords, 7);
 
     for (var i = 0 ; i < bootcamp.locations.length ; i++){
         var coords = {

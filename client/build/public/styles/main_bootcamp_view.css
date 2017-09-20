@@ -1,11 +1,3 @@
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto; 
-  object-fit: cover;
-  width:-webkit-fill-available; 
-  height: auto;
-}
 
 #all-bootcamps {
 display: flex;
@@ -28,3 +20,11 @@ margin-top: 8.75em;
 }
 
 
+#all-bootcamps article img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+  object-fit: cover;
+  width:-webkit-fill-available; 
+  height: auto;
+}

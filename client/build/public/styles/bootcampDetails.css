@@ -1,7 +1,27 @@
 
 /*main major section*/
+nav {
+  display: flex;
+  background-color: white;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+nav img {
+  width: auto;
+  height: 100px;
+}
+
+nav h1 {
+  margin: 1em;
+}
+
+
+
 #allDetailsTag {
   background-color: white;
+  margin: 10px;
 }
 
 #priceLengthBox {
@@ -10,9 +30,19 @@
   flex-flow: row wrap;
 }
 
-#priceLengthBox h2{
-  margin: auto;
+#allDetailsTag h2{
+  margin: 10px;
 }
+
+#allDetailsTag h3{
+  margin: 10px;
+}
+
+
+#allDetailsTag p{
+  margin: 10px;
+}
+
 
 #skillsBox {
   display: flex;
@@ -21,20 +51,8 @@
 
 }
 
-#skillsBox h3{
-
-}
-#skillsBox p{
-
-}
-
 
 /*major section*/
-#otherSection{
-
-
-}
-
 
 #descriptiveBox {
   display: flex;
@@ -52,9 +70,7 @@
 }
 
 #mapTag {
-/*  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;*/
+  margin: auto;
   height:500px;
   width:500px;
 }
@@ -66,19 +82,25 @@
   height:500px;
   width:500px;
   margin: auto;
+  overflow:hidden
 
 }
 
 #addressWebBox {
   display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
+  justify-content: top;
+  flex-flow: column wrap;
+  text-align: center;
+  float:right;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 
 #favButton {
   height: 70px;
   width: 70px;
+  margin: 10px;
   background-color: white;
   color: red;
   flex-wrap: wrap;
@@ -86,6 +108,11 @@
   position: fixed;
   right: 0;
   bottom: 0;
+}
+
+#favButton img {
+  height: 65px;
+  width: 65px;
 }
 
 /*#descriptiveBox, #locationsBox, #mapTag, #mapBox, #favButton {

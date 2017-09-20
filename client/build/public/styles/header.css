@@ -30,4 +30,5 @@ header img {
 
 #search_bar {
   align-self: flex-end;
+  margin: 5px;
 }
