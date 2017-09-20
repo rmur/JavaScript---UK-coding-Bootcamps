@@ -48,13 +48,15 @@ db.bootcamps.insert(
         city: "Edinburgh", 
         lat: 55.9470, 
         lng: -3.2020, 
-        address: "37 Castle Terrace, Edinburgh, EH1 2EL"
+        address: "37 Castle Terrace, Edinburgh, EH1 2EL",
+        costOfLiving: 330
       }, 
       {
         city: "Glasgow", 
         lat: 55.857044, 
         lng: -4.244319, 
-        address: "Tontine, 20 Trongate G1 5NA"
+        address: "Tontine, 20 Trongate G1 5NA",
+        costOfLiving: 238
       }
       ],
     twitter: "https://twitter.com/CodeClanScot",
@@ -83,7 +85,8 @@ db.bootcamps.insert(
         city: "Belfast", 
         lat: 54.602357,  
         lng: -5.930034, 
-        address: "6-10 William St, Belfast, BT1 1PR"
+        address: "6-10 William St, Belfast, BT1 1PR",
+        costOfLiving: 197
       }
       ],
     twitter: "https://twitter.com/code_boot_camp",
@@ -112,7 +115,8 @@ db.bootcamps.insert(
         city: "Bristol", 
         lat: 51.443396,
         lng: -2.568024, 
-        address: "Paintworks Central Trading Estate, Bath Rd, Bristol, BS4 3EH"
+        address: "Paintworks Central Trading Estate, Bath Rd, Bristol, BS4 3EH",
+        costOfLiving: 453
       }
       ],
     twitter: "https://twitter.com/develop_me_uk",
@@ -141,13 +145,15 @@ db.bootcamps.insert(
         city: "London", 
         lat: 51.523926,
         lng: -0.083789, 
-        address: "Rise London, 41 Luke St, London, EC2A 4DP"
+        address: "Rise London, 41 Luke St, London, EC2A 4DP",
+        costOfLiving: 459
       },
       {
         city: "London", 
         lat: 51.514256, 
         lng: -0.225857, 
-        address: "Huckletree West, 191 Wood Ln, White City, London, W12 7FP"
+        address: "Huckletree West, 191 Wood Ln, White City, London, W12 7FP",
+        costOfLiving: 459
       }
       ],
     twitter: "https://twitter.com/MumsinTech",
@@ -176,7 +182,8 @@ db.bootcamps.insert(
         city: "London",
         lat: 51.521303, 
         lng: -0.076693, 
-        address: "Frizzell House, 14-22 Elder St, London, E1 6BT"
+        address: "Frizzell House, 14-22 Elder St, London, E1 6BT",
+        costOfLiving: 459
       }
       ],
     twitter: "https://twitter.com/lewagonlondon?lang=en",
@@ -205,7 +212,8 @@ db.bootcamps.insert(
         city: "London",
         lat: 51.529485, 
         lng: -0.042247, 
-        address: "14 Palmers Rd, London E2 0SY"
+        address: "14 Palmers Rd, London E2 0SY",
+        costOfLiving: 459
       }
       ],
     twitter: "https://twitter.com/founderscoders",
@@ -234,13 +242,15 @@ db.bootcamps.insert(
         city: "Hertfordshire",
         lat: 51.755301, 
         lng: -0.009830, 
-        address: "Yewlands House, Hoddesdon EN11 8BX"
+        address: "Yewlands House, Hoddesdon EN11 8BX",
+        costOfLiving: 260
       },
       {
         city: "Nottingham", 
         lat: 52.949834, 
         lng: -1.186656, 
-        address: "Triumph Rd, Nottingham NG8 1DH"
+        address: "Triumph Rd, Nottingham NG8 1DH",
+        costOfLiving: 264
       }
       ],
     twitter: "https://twitter.com/wegotcoders",
@@ -269,7 +279,8 @@ db.bootcamps.insert(
         city: "Bath", 
         lat: 51.3748, 
         lng: -2.3495, 
-        address: "1 Widcombe Cres, Bath BA2 6AH"
+        address: "1 Widcombe Cres, Bath BA2 6AH",
+        costOfLiving: 290
       }
       ],
     twitter: "https://twitter.com/maydentweets",
@@ -298,7 +309,8 @@ db.bootcamps.insert(
         city: "Manchester", 
         lat: 53.4861, 
         lng: -2.2398, 
-        address: "Federation House, Federation Street, Manchester M4 2AH"
+        address: "Federation House, Federation Street, Manchester M4 2AH",
+        costOfLiving: 291
       }
       ],
     twitter: "https://twitter.com/northcoders",
@@ -327,7 +339,8 @@ db.bootcamps.insert(
         city: "Liverpool", 
         lat: 53.402946, 
         lng: -2.979761, 
-        address: "Unit 301, Vanilla Factory 39 Fleet St, Liverpool L1 4AR"
+        address: "Unit 301, Vanilla Factory 39 Fleet St, Liverpool L1 4AR",
+        costOfLiving: 294
       }
       ],
     twitter: "https://twitter.com/coderspaceuk",
@@ -356,7 +369,8 @@ db.bootcamps.insert(
         city: "Caerphilly", 
         lat: 51.5712, 
         lng: -3.2039, 
-        address: "Tramshed Tech, Pendyris St, Cardiff, CF11 6BH"
+        address: "Tramshed Tech, Pendyris St, Cardiff, CF11 6BH",
+        costOfLiving: 210
       }
       ],
     twitter: "https://twitter.com/CodezAcademy",
@@ -385,7 +399,8 @@ db.bootcamps.insert(
         city: "London", 
         lat: 51.5173, 
         lng: -0.0733, 
-        address: "50-52 Commercial St ,London E1 6LT ,United Kingdom"
+        address: "50-52 Commercial St ,London E1 6LT ,United Kingdom",
+        costOfLiving: 459
       }
       ],
     twitter: "https://twitter.com/makersacademy",
@@ -414,7 +429,8 @@ db.bootcamps.insert(
         city: "London", 
         lat: 51.515198, 
         lng: -0.072355, 
-        address: "GA London, The Relay Building, 1st Floor, 114 Whitechapel High Street, London, E1 7PT"
+        address: "GA London, The Relay Building, 1st Floor, 114 Whitechapel High Street, London, E1 7PT",
+        costOfLiving: 459
       } 
       ],
     twitter: "https://twitter.com/GA",
@@ -443,7 +459,8 @@ db.bootcamps.insert(
         city: "London", 
         lat: 51.517700, 
         lng: -0.109410, 
-        address: "30 Holborn, London, EC1N 2LX, United Kingdom"
+        address: "30 Holborn, London, EC1N 2LX, United Kingdom",
+        costOfLiving: 459
       }
       ],
     twitter: "https://twitter.com/digunicorn",
@@ -472,7 +489,8 @@ db.bootcamps.insert(
         city: "London", 
         lat: 51.512332, 
         lng: 0.075323, 
-        address: "2nd Floor, St. Clare House, 30-33 Minories, London, EC3N 1DD"
+        address: "2nd Floor, St. Clare House, 30-33 Minories, London, EC3N 1DD",
+        costOfLiving: 459
       }
       ],
     twitter: "https://twitter.com/JustITTR",

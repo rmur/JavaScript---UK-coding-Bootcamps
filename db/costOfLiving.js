@@ -44,6 +44,6 @@ db.bootcamps.insert(
   },
   {
     name: "Caerphilly",
-    costOfLiving: 230 ,
+    costOfLiving: 210 ,
   }
   ]);
