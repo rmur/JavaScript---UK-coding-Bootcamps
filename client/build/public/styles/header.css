@@ -14,7 +14,7 @@ header {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
-  background-color: white;
+  background-color: #b54713;
   position: fixed;
   z-index: 1;
   top: 0;

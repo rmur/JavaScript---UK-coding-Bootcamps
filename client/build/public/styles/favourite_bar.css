@@ -1,14 +1,20 @@
 #favourites {
+  margin: 10px 10px;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
-  background-color: lightblue;
+  background-color: #b54713;
+}
+
+#favourites h2{
+  position: absolute;
+  margin-top: 0.05%;
 }
 
 #favourites article {
   flex: 1;
   height: 100%;
-  margin: 10px;
+  margin: 4%;
   padding: 10px;
   border: 10px;
   width: 300px;
