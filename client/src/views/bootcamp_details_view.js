@@ -1,4 +1,5 @@
 var MapWrapper = require('../models/map_wrapper.js');
+var AjaxRequest = require('../services/ajax_request.js');
 
 var BootcampDetailsView = function(detailsElement) {
     this.detailsElement = detailsElement;
@@ -17,12 +18,17 @@ var BootcampDetailsView = function(detailsElement) {
     var weeksTag = document.createElement("h2");
     var langTag = document.createElement("h3");
     var coreSkillsTag = document.createElement("h3");
-    var locationsTag = document.createElement("h4");
+    var locationsCostTag = document.createElement("p");
+    var totalCostTag = document.createElement("p");
     var tasterTag = document.createElement("p");
     var fundingTag = document.createElement("p");
     var descTag = document.createElement("p");
     var addressTag = document.createElement("p");
     var websiteTag = document.createElement("a");
+
+    var favButton = document.createElement("button");
+    favButton.innerHTML = '<img src="../public/favourite.png">';
+    favButton.id = "favButton";
 
     logo.src = bootcamp.logo;
     nameTag.innerText = bootcamp.name;
@@ -50,17 +56,6 @@ var BootcampDetailsView = function(detailsElement) {
         }
     }
     coreSkillsTag.innerText = coreSkillsString;
-
-
-    locationsString = "Locations: "
-    for(var i = 0; i < bootcamp.locations.length; i++){
-        if(i === (bootcamp.locations.length - 1)){
-            locationsString += bootcamp.locations[i].city;
-        } else {
-            locationsString += bootcamp.locations[i].city + ", ";
-        }
-    }
-    locationsTag.innerText = locationsString
 
     if (bootcamp.taster){
         tasterTag.innerText = "Taster Session Available"
@@ -124,6 +119,16 @@ var BootcampDetailsView = function(detailsElement) {
     var addressWebBox = document.createElement("section");
     addressWebBox.id = "addressWebBox";
     priceLengthBox.appendChild(priceTag);
+
+    favButton.addEventListener("click", function(){
+        var favouritesData = new AjaxRequest('http://localhost:3000/favourites');
+        favouritesData.post(bootcamp);
+    })
+
+    // allDetailsTag.appendChild(favButton);
+    addressWebBox.appendChild(favButton);
+
+
     priceLengthBox.appendChild(weeksTag);
     skillsBox.appendChild(langTag);
     skillsBox.appendChild(coreSkillsTag);
@@ -154,6 +159,39 @@ var BootcampDetailsView = function(detailsElement) {
         descriptiveBox.appendChild(fundingTag);
     }
 
+    locationsCostString = "Cost of Living Per Week: "
+    totalCostString = "Total Cost: "
+
+    for(var i = 0; i < bootcamp.locations.length; i++){
+        if(bootcamp.locations.length > 1){
+            if(i === (bootcamp.locations.length - 1)){
+                locationsCostString += "£" + bootcamp.locations[i].costOfLiving;            
+                locationsCostString += " (" + bootcamp.locations[i].city + ")";
+
+                locationTotal =  bootcamp.locations[i].costOfLiving + bootcamp.price[0];
+                totalCostString += "£" + locationTotal; 
+                totalCostString += " (" + bootcamp.locations[i].city + ")"
+
+            } else {
+                locationsCostString += "£" + bootcamp.locations[i].costOfLiving;            
+                locationsCostString += " (" + bootcamp.locations[i].city + ")" + ", ";
+
+                locationTotal =  bootcamp.locations[i].costOfLiving + bootcamp.price[0];
+                totalCostString += "£" + locationTotal;
+                totalCostString +=  " (" + bootcamp.locations[i].city + ")" + ", ";
+            }
+        } else {
+            locationsCostString += "£" + bootcamp.locations[i].costOfLiving;            
+
+            locationTotal =  bootcamp.locations[i].costOfLiving + bootcamp.price[0];
+            totalCostString += "£" + locationTotal;
+        }
+    }
+    locationsCostTag.innerText = locationsCostString;
+    totalCostTag.innerText = totalCostString
+
+    descriptiveBox.appendChild(locationsCostTag);
+    descriptiveBox.appendChild(totalCostTag);
     descriptiveBox.appendChild(descTag);
     addressWebBox.appendChild(addressTag);
     addressWebBox.appendChild(websiteTag);
@@ -176,6 +214,8 @@ var BootcampDetailsView = function(detailsElement) {
     while (favouritesTag.hasChildNodes()) {
         favouritesTag.removeChild(favouritesTag.lastChild);
     }
+
+
 
     
     window.scrollTo(0, 0);
