@@ -14,6 +14,10 @@ WelcomePopUpWindow.prototype.render = function(){
   var header = document.createElement('h1');
   header.innerText= headerText;
 
+  var image = document.createElement('img');
+  image.id = "mainImage";
+  image.src = "http://art.fritsahlefeldt.com/assets/cache/idMjcyMWU4OTBkYjU1ZmY=-1ee547777c05df3effc27124f61347be.jpg";
+
   var closeButton = document.createElement('button');
   closeButton.id = "close";
   closeButton.innerText = "OK";
@@ -26,6 +30,7 @@ WelcomePopUpWindow.prototype.render = function(){
   content.innerText= this.text;
 
   popUpContent.appendChild(header);
+  popUpContent.appendChild(image);
   popUpContent.appendChild(content);
   popUpContent.appendChild(closeButton);
 
