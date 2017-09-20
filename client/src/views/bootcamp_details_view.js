@@ -15,7 +15,8 @@ var BootcampDetailsView = function(detailsElement) {
     var weeksTag = document.createElement("h2");
     var langTag = document.createElement("h3");
     var coreSkillsTag = document.createElement("h3");
-    var locationsTag = document.createElement("p");
+    var locationsCostTag = document.createElement("p");
+    var totalCostTag = document.createElement("p");
     var tasterTag = document.createElement("p");
     
     var fundingTag = document.createElement("p");
@@ -50,17 +51,6 @@ var BootcampDetailsView = function(detailsElement) {
         }
     }
     coreSkillsTag.innerText = coreSkillsString;
-
-
-    locationsString = "Locations: "
-    for(var i = 0; i < bootcamp.locations.length; i++){
-        if(i === (bootcamp.locations.length - 1)){
-            locationsString += bootcamp.locations[i].city;
-        } else {
-            locationsString += bootcamp.locations[i].city + ", ";
-        }
-    }
-    locationsTag.innerText = locationsString
 
     if (bootcamp.taster){
         tasterTag.innerText = "Taster Session Available"
@@ -130,18 +120,38 @@ var BootcampDetailsView = function(detailsElement) {
     }
 
     locationsString = "Cost of Living: "
+    totalCostString = "Total Cost: "
     for(var i = 0; i < bootcamp.locations.length; i++){
         if(i === (bootcamp.locations.length - 1)){
             locationsString += "£" + bootcamp.locations[i].costOfLiving;            
             locationsString += " (" + bootcamp.locations[i].city + ")";
+
+            locationTotal =  bootcamp.locations[i].costOfLiving + bootcamp.price[0];
+            console.log(locationTotal);
+            totalCostString += "£" + locationTotal; 
+            totalCostString += " (" + bootcamp.locations[i].city + ")"
+
         } else {
             locationsString += "£" + bootcamp.locations[i].costOfLiving;            
             locationsString += " (" + bootcamp.locations[i].city + ")" + ", ";
+
+            locationTotal =  bootcamp.locations[i].costOfLiving + bootcamp.price[0];
+            console.log(locationTotal);
+            totalCostString += "£" + locationTotal;
+            totalCostString +=  " (" + bootcamp.locations[i].city + ")" + ", ";
         }
     }
+<<<<<<< Updated upstream
     locationsTag.innerText = locationsString
+    
+=======
+    locationsCostTag.innerText = locationsString;
+    totalCostTag.innerText = totalCostString
+>>>>>>> Stashed changes
 
-    descriptiveBox.appendChild(locationsTag);
+    
+    descriptiveBox.appendChild(locationsCostTag);
+    descriptiveBox.appendChild(totalCostTag);
     descriptiveBox.appendChild(descTag);
     addressWebBox.appendChild(addressTag);
     addressWebBox.appendChild(websiteTag);
