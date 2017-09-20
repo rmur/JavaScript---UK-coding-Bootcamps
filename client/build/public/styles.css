@@ -488,17 +488,13 @@ header img {
 
 #search_bar {
   align-self: flex-end;
-  /* left: 5%; */
 }
 
 #all-bootcamps {
 display: flex;
 justify-content: center;
 flex-flow: row wrap;
-margin-top: 140px;
-/* position: absolute; */
-/* top: 40%; */
-
+margin-top: 8.5em;
 }
 
 #all-bootcamps article {
