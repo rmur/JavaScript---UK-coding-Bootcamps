@@ -21,7 +21,11 @@ header {
 }
 
 header p {
-  align-self: flex-end;
+  font-size: 25px;
+  color: white;
+  align-self: 
+  flex-end;
+
 }
 
 header img {
@@ -31,4 +35,15 @@ header img {
 #search_bar {
   align-self: flex-end;
   margin: 5px;
+}
+
+header input{
+  width:170px;
+  height: 50px;
+}
+
+header button{
+  height: 57px;
+  width: 70px;
+  background-color: white;
 }
