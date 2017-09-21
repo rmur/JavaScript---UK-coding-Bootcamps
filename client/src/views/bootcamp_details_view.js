@@ -151,13 +151,8 @@ var BootcampDetailsView = function(detailsElement) {
         lat: bootcamp.locations[0].lat,
         lng: bootcamp.locations[0].lng
     }
-<<<<<<< HEAD
-    mapTag.style.height = "500px";
-    mapTag.style.width = "500px";
-=======
 
-    console.dir(mapTag);
->>>>>>> css_styling
+
     var map = new MapWrapper(mapTag, coords, 7);
     
     for (var i = 0 ; i < bootcamp.locations.length ; i++){
