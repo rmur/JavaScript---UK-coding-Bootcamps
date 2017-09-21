@@ -37,7 +37,7 @@ var BootcampDetailsView = function(detailsElement) {
     var favButton = document.createElement("button");
     var favButtonImg = document.createElement("img");
     favButtonImg.id = "favButtonImg";
-    favButtonImg.src = "../public/favourite.png";
+    favButtonImg.src = "../public/pictures/favourite.png";
     // favButton.innerHTML = '<img src="../public/favourite.png">';
     favButton.id = "favButton";
 
@@ -76,7 +76,7 @@ var BootcampDetailsView = function(detailsElement) {
     priceTag.innerText = "Price: £" + bootcamp.price[0];
     weeksTag.innerText = "Length in Weeks: " + bootcamp.lengthWeeks;
 
-    languagesString = "Languages: "
+    languagesString = "Programming Languages: "
     for(var i = 0; i < bootcamp.languages.length; i++){
         if(i === (bootcamp.languages.length - 1)){
             languagesString += bootcamp.languages[i];
@@ -99,7 +99,7 @@ var BootcampDetailsView = function(detailsElement) {
     coreSkillsTag.innerText = coreSkillsString;
 
     if (bootcamp.taster){
-        tasterTag.innerText = "Taster Session Available"
+        tasterTag.innerText = "Taster Session: Available"
     }
     
     if (bootcamp.locations.length > 1){
@@ -151,8 +151,8 @@ var BootcampDetailsView = function(detailsElement) {
         lat: bootcamp.locations[0].lat,
         lng: bootcamp.locations[0].lng
     }
-    mapTag.style.height = "500px";
-    mapTag.style.width = "500px";
+
+
     var map = new MapWrapper(mapTag, coords, 7);
     
     for (var i = 0 ; i < bootcamp.locations.length ; i++){
