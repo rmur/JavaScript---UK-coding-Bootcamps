@@ -29,7 +29,9 @@ var BootcampDetailsView = function(detailsElement) {
     var logo = document.createElement("img");
     var nameTag = document.createElement("h1");
     var leftButton = document.createElement("button");
+    leftButton.id = "listButtonLeft";
     var rightButton = document.createElement("button");
+    rightButton.id = "listButtonRight";
 
     var favButton = document.createElement("button");
     var favButtonImg = document.createElement("img");
