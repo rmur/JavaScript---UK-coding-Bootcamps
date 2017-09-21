@@ -168,10 +168,7 @@ var BootcampDetailsView = function(detailsElement) {
         // debugger
         google.maps.event.trigger(map.googleMap,'resize');
         map.googleMap.setCenter(coords);
-    //   console.log(map.center);
-    //   console.log(event);
-        
-        // do something only the first time the map is loaded
+
     }.bind(this));
 
     
@@ -270,6 +267,11 @@ var BootcampDetailsView = function(detailsElement) {
     var allBootcamps = document.querySelector('#all-bootcamps');
     while (allBootcamps.hasChildNodes()) {
         allBootcamps.removeChild(allBootcamps.lastChild);
+    }
+
+    var favouritesTag = document.querySelector('#favourites');
+    while (favouritesTag.hasChildNodes()) {
+        favouritesTag.removeChild(favouritesTag.lastChild);
     }
 
 
