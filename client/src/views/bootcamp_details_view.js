@@ -6,7 +6,6 @@ var BootcampDetailsView = function(detailsElement) {
   }
   
   BootcampDetailsView.prototype.render = function(bootcamp){
-    console.log(this.data);
     this.detailsElement.innerText = ""
     // while (this.detailsElement.hasChildNodes()) {
     //     this.detailsElement.removeChild(main.lastChild);
@@ -59,9 +58,7 @@ var BootcampDetailsView = function(detailsElement) {
     }.bind(this));
 
     rightButton.addEventListener("click", function(){
-        console.log("right button clicked");
         var index = this.data.indexOf(bootcamp);
-        console.log(index);
         if ( (index + 1) > (this.data.length - 1) ){
             index = 0;
         } else {
@@ -154,10 +151,8 @@ var BootcampDetailsView = function(detailsElement) {
         lat: bootcamp.locations[0].lat,
         lng: bootcamp.locations[0].lng
     }
-    // console.dir(mapTag);
     mapTag.style.height = "500px";
     mapTag.style.width = "500px";
-    console.dir(mapTag);
     var map = new MapWrapper(mapTag, coords, 7);
     
     for (var i = 0 ; i < bootcamp.locations.length ; i++){
@@ -169,7 +164,6 @@ var BootcampDetailsView = function(detailsElement) {
     }
 
     google.maps.event.addListenerOnce(map.googleMap, 'idle', function(){
-        // debugger
         google.maps.event.trigger(map.googleMap,'resize');
         map.googleMap.setCenter(coords);
 
