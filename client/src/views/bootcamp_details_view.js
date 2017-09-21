@@ -28,10 +28,12 @@ var BootcampDetailsView = function(detailsElement) {
     var navBox = document.createElement("nav");
     var logo = document.createElement("img");
     var nameTag = document.createElement("h1");
+
     var leftButton = document.createElement("button");
-    leftButton.id = "listButtonLeft";
     var rightButton = document.createElement("button");
-    rightButton.id = "listButtonRight";
+
+    leftButton.id = "leftButton";
+    rightButton.id = "rightButton";
 
     var favButton = document.createElement("button");
     var favButtonImg = document.createElement("img");
@@ -114,11 +116,15 @@ var BootcampDetailsView = function(detailsElement) {
         } 
     } else {
         addressString = "Address: <br>"
-        addressString + bootcamp.locations[0].address;
+        addressString += bootcamp.locations[0].address;
     } 
     addressTag.innerHTML = addressString
     
     
+
+
+
+
     descTag.innerText = bootcamp.details
     
     websiteTag.href = bootcamp.website
@@ -139,16 +145,21 @@ var BootcampDetailsView = function(detailsElement) {
 
     var mapBox = document.createElement("section");
     mapBox.id = "mapBox";
-    var mapTag = document.createElement("mark");
+    var mapTag = document.createElement("div");
     mapTag.id = "mapTag";
+
+    mapBox.appendChild(mapTag);
 
     var coords = {
         lat: bootcamp.locations[0].lat,
         lng: bootcamp.locations[0].lng
     }
-
+    // console.dir(mapTag);
+    mapTag.style.height = "500px";
+    mapTag.style.width = "500px";
+    console.dir(mapTag);
     var map = new MapWrapper(mapTag, coords, 7);
-
+    
     for (var i = 0 ; i < bootcamp.locations.length ; i++){
         var coords = {
         lat: bootcamp.locations[i].lat,
@@ -156,7 +167,16 @@ var BootcampDetailsView = function(detailsElement) {
         }
         map.addMarker(coords);
     }
-    mapBox.appendChild(mapTag);
+
+    google.maps.event.addListenerOnce(map.googleMap, 'idle', function(){
+        // debugger
+        google.maps.event.trigger(map.googleMap,'resize');
+        map.googleMap.setCenter(coords);
+
+    }.bind(this));
+
+    
+    
     
     var addressWebBox = document.createElement("section");
     addressWebBox.id = "addressWebBox";
@@ -251,6 +271,11 @@ var BootcampDetailsView = function(detailsElement) {
     var allBootcamps = document.querySelector('#all-bootcamps');
     while (allBootcamps.hasChildNodes()) {
         allBootcamps.removeChild(allBootcamps.lastChild);
+    }
+
+    var favouritesTag = document.querySelector('#favourites');
+    while (favouritesTag.hasChildNodes()) {
+        favouritesTag.removeChild(favouritesTag.lastChild);
     }
 
 
