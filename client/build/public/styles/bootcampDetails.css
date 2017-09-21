@@ -30,6 +30,7 @@ nav h1 {
 }
 
 #priceLengthBox {
+  padding: 5%;
   background-color: #eaeaea;
   display: flex;
   justify-content: center;
@@ -37,20 +38,30 @@ nav h1 {
 }
 
 #allDetailsTag h2{
+  font-size: 30px;
   margin: 10px;
 }
 
 #allDetailsTag h3{
-  margin: 10px;
+  margin: 2%;
+  padding: 10px;
+  font-size: 28px;
+  
 }
 
 
 #allDetailsTag p{
-  margin: 10px;
+  font-size: 25px;
+  margin: 2%;
+  padding: 10px;
+  line-height: 47px;
+
 }
 
 
 #skillsBox {
+  margin: 2%;
+  padding: 10px;
   display: flex;
   justify-content: center;
   flex-flow: column wrap;
@@ -64,12 +75,15 @@ nav h1 {
   display: flex;
   justify-content: center;
   flex-flow: column wrap;
+  margin: 2%;
+  padding: 10px;
 
 }
 
 
 
 #locationsBox {
+  padding: 20px;
   background-color: #eaeaea;
   display: flex;
   justify-content: center;
@@ -79,7 +93,7 @@ nav h1 {
 #mapTag {
   margin: auto;
   height:250px;
-  width:300px;
+  width:250px;
   padding: 10px;
 }
 
@@ -116,22 +130,8 @@ nav h1 {
   bottom: 0;
 }
 
-/*#favButton img {
-  margin: auto;
-  height: 65px;
-  width: 65px;
-}*/
-
 #favButtonImg{
   /*margin: auto;*/
   height: 50px;
   width: 50px;
 }
-
-/*#descriptiveBox, #locationsBox, #mapTag, #mapBox, #favButton {
-  border: 1px solid red;
-}
-
-#allDetailsTag, #addressWebBox{
-  border: 2px solid black;
-}*/
