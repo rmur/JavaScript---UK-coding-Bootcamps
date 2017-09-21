@@ -28,7 +28,6 @@ var app = function(){
         
 
     allBootcampsView.main.addEventListener("click", function(event){
-        // bootcampDetailsView.data = (bootcampsData.data);
         var chosenCamp = bootcampsData.data[event.path[1].id]
         bootcampDetailsView.render(chosenCamp);
         favouritesView.render(favouritesData.data);
@@ -36,29 +35,28 @@ var app = function(){
 
     var locationInput = document.querySelector("#locationInput");
     locationInput.addEventListener("keyup", function(){
-        var dataToRender = filter.locationFilter(bootcampsData.data);
+        var dataToRender = filter.allFilter(bootcampsData.data);
         bootcampDetailsView.data = dataToRender;
-        // console.log(bootcampDetailsView.data)
         allBootcampsView.render(dataToRender)
     })
 
     var priceInput = document.querySelector("#priceInput");
     priceInput.addEventListener("input", function(){
-        var dataToRender = filter.priceFilter(bootcampsData.data);
+        var dataToRender = filter.allFilter(bootcampsData.data);
         bootcampDetailsView.data = dataToRender;
         allBootcampsView.render(dataToRender);
     })
 
     var lengthInput = document.querySelector("#lengthInput");
     lengthInput.addEventListener("input", function(){
-        var dataToRender = filter.lengthFilter(bootcampsData.data);
+        var dataToRender = filter.allFilter(bootcampsData.data);
         bootcampDetailsView.data = dataToRender;
         allBootcampsView.render(dataToRender);
     })
 
     var langInput = document.querySelector("#langInput");
     langInput.addEventListener("keyup", function(){
-        var dataToRender = filter.langFilter(bootcampsData.data);
+        var dataToRender = filter.allFilter(bootcampsData.data);
         bootcampDetailsView.data = dataToRender;
         allBootcampsView.render(dataToRender);
     })
@@ -81,11 +79,10 @@ var app = function(){
     favouritesView.main.addEventListener("click", function(event){
         var chosenCamp = favouritesData.data[event.path[1].id]
         bootcampDetailsView.render(chosenCamp);
-        
+        favouritesView.render(favouritesData.data);
     });
 
        setTimeout(function(){
-        console.log(bootcampsData.data);
         bootcampDetailsView.data = bootcampsData.data;
     }, 1000).bind(this);
 
