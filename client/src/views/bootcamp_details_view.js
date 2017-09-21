@@ -28,8 +28,11 @@ var BootcampDetailsView = function(detailsElement) {
     var navBox = document.createElement("nav");
     var logo = document.createElement("img");
     var nameTag = document.createElement("h1");
+
     var leftButton = document.createElement("button");
     var rightButton = document.createElement("button");
+    leftButton.id = "leftButton";
+    rightButton.id = "rightButton";
 
     var favButton = document.createElement("button");
     var favButtonImg = document.createElement("img");

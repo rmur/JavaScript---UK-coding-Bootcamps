@@ -1,54 +1,18 @@
 
 /*main major section*/
-nav {
-  display: flex;
-  background-color: white;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 10px;
-}
-
-nav img {
-  width: auto;
-  height: 100px;
-}
-
-nav h1 {
-  margin: 1em;
-}
-
-#leftButton, #rightButton {
-  width: 50px;
-  font-weight: bold;
-  font-size: 25px;
-}
-
-
 #allDetailsTag {
   background-color: white;
-  margin: 10px;
 }
 
 #priceLengthBox {
-  background-color: #eaeaea;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
 }
 
-#allDetailsTag h2{
-  margin: 10px;
+#priceLengthBox h2{
+  margin: auto;
 }
-
-#allDetailsTag h3{
-  margin: 10px;
-}
-
-
-#allDetailsTag p{
-  margin: 10px;
-}
-
 
 #skillsBox {
   display: flex;
@@ -57,8 +21,20 @@ nav h1 {
 
 }
 
+#skillsBox h3{
+
+}
+#skillsBox p{
+
+}
+
 
 /*major section*/
+#otherSection{
+
+
+}
+
 
 #descriptiveBox {
   display: flex;
@@ -70,45 +46,39 @@ nav h1 {
 
 
 #locationsBox {
-  background-color: #eaeaea;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
 }
 
 #mapTag {
-  margin: auto;
+/*  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;*/
   height:500px;
   width:500px;
-  padding: 10px;
 }
 
 #mapBox {
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
-/*  height:500px;
-  width:500px;*/
+  height:500px;
+  width:500px;
   margin: auto;
-  padding: 10px;
 
 }
 
 #addressWebBox {
   display: flex;
-  justify-content: top;
-  flex-flow: column wrap;
-  text-align: center;
-  float:right;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center;
+  flex-flow: row wrap;
 
 }
 
 #favButton {
   height: 70px;
   width: 70px;
-  margin: 10px;
   background-color: white;
   color: red;
   flex-wrap: wrap;
@@ -116,18 +86,6 @@ nav h1 {
   position: fixed;
   right: 0;
   bottom: 0;
-}
-
-/*#favButton img {
-  margin: auto;
-  height: 65px;
-  width: 65px;
-}*/
-
-#favButtonImg{
-  /*margin: auto;*/
-  height: 50px;
-  width: 50px;
 }
 
 /*#descriptiveBox, #locationsBox, #mapTag, #mapBox, #favButton {
