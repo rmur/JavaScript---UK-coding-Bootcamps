@@ -81,7 +81,7 @@ var app = function(){
     favouritesView.main.addEventListener("click", function(event){
         var chosenCamp = favouritesData.data[event.path[1].id]
         bootcampDetailsView.render(chosenCamp);
-        
+        favouritesView.render(favouritesData.data);
     });
 
        setTimeout(function(){
