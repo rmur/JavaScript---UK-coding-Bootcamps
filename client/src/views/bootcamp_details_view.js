@@ -37,7 +37,7 @@ var BootcampDetailsView = function(detailsElement) {
     var favButton = document.createElement("button");
     var favButtonImg = document.createElement("img");
     favButtonImg.id = "favButtonImg";
-    favButtonImg.src = "../public/favourite.png";
+    favButtonImg.src = "../public/pictures/favourite.png";
     // favButton.innerHTML = '<img src="../public/favourite.png">';
     favButton.id = "favButton";
 
